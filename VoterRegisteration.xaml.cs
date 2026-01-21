@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Azure;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -11,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static International_Voting_Systems.MainDBConext;
 
 namespace International_Voting_Systems
 {
@@ -24,6 +27,33 @@ namespace International_Voting_Systems
             InitializeComponent();
         }
 
+        
 
+        private void btnregistervoter_Click(object sender, RoutedEventArgs e)
+        {
+            using (var db = new MainDatabaseContext())
+            {
+                var newVoter = new Voter()
+                {
+
+                    VoterID = Convert.ToInt32(txtvoterid.Text),
+                    Name = txtname.Text,
+                    Email = txtemail.Text,
+                    Age = Convert.ToInt32(txtage.Text),
+                    Gender = txtgender.Text,
+                    DOB = Convert.ToDateTime(txtdob.Text),
+                    ContactNumber = Convert.ToDouble(txtcontactnumber.Text),
+
+
+
+
+                };
+                db.Voters.Add(newVoter);
+                db.SaveChanges();
+
+
+                MessageBox.Show("New Voter Added!");
+            }
+        }
     }
 }

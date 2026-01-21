@@ -9,14 +9,16 @@ namespace International_Voting_Systems
     public class Voter
     {
         public int VoterID { get; set; }
-        public int Name { get; set; }
+        public string Name { get; set; }
         public string Email { get; set; }
-        public string Age { get; set; }
+        public int Age { get; set; }
         public string Gender { get; set; }
 
-        public DateOnly DOB { get; set; }
+        public DateTime DOB { get; set; }
 
         public double ContactNumber { get; set; }
+
+        //missing address
 
     }
 }
