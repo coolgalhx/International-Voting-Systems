@@ -1,6 +1,7 @@
 ﻿using Azure;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -13,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static International_Voting_Systems.Class1;
 using static International_Voting_Systems.MainDBConext;
 
 namespace International_Voting_Systems
@@ -21,18 +23,20 @@ namespace International_Voting_Systems
     /// Interaction logic for VoterRegisteration.xaml
     /// </summary>
     public partial class VoterRegisteration : Window
-    {
+    {   
+        private Subject subject;
         public VoterRegisteration()
         {
             InitializeComponent();
+            subject=new Subject(); 
+           
         }
 
-        
+
 
         private void btnregistervoter_Click(object sender, RoutedEventArgs e)
         {
-            using (var db = new MainDatabaseContext())
-            {
+            
                 var newVoter = new Voter()
                 {
 
@@ -44,16 +48,15 @@ namespace International_Voting_Systems
                     DOB = Convert.ToDateTime(txtdob.Text),
                     ContactNumber = Convert.ToDouble(txtcontactnumber.Text),
 
-
-
-
                 };
-                db.Voters.Add(newVoter);
-                db.SaveChanges();
+
+            subject.RegisterVoter(newVoter);
 
 
-                MessageBox.Show("New Voter Added!");
-            }
+            MessageBox.Show("New Voter Added!");
+
+            
         }
     }
+    
 }

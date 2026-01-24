@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace International_Voting_Systems.Migrations
 {
     [DbContext(typeof(MainDBConext.MainDatabaseContext))]
-    [Migration("20260121133813_VoterTable")]
+    [Migration("20260121190829_VoterTable")]
     partial class VoterTable
     {
         /// <inheritdoc />
@@ -26,14 +26,13 @@ namespace International_Voting_Systems.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Age")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                    b.Property<int>("Age")
+                        .HasColumnType("INTEGER");
 
                     b.Property<double>("ContactNumber")
                         .HasColumnType("REAL");
 
-                    b.Property<DateOnly>("DOB")
+                    b.Property<DateTime>("DOB")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Email")
@@ -44,8 +43,9 @@ namespace International_Voting_Systems.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("Name")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.HasKey("VoterID");
 

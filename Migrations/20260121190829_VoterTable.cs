@@ -17,11 +17,11 @@ namespace International_Voting_Systems.Migrations
                 {
                     VoterID = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Name = table.Column<int>(type: "INTEGER", nullable: false),
+                    Name = table.Column<string>(type: "TEXT", nullable: false),
                     Email = table.Column<string>(type: "TEXT", nullable: false),
-                    Age = table.Column<string>(type: "TEXT", nullable: false),
+                    Age = table.Column<int>(type: "INTEGER", nullable: false),
                     Gender = table.Column<string>(type: "TEXT", nullable: false),
-                    DOB = table.Column<DateOnly>(type: "TEXT", nullable: false),
+                    DOB = table.Column<DateTime>(type: "TEXT", nullable: false),
                     ContactNumber = table.Column<double>(type: "REAL", nullable: false)
                 },
                 constraints: table =>
