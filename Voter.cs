@@ -20,5 +20,8 @@ namespace International_Voting_Systems
 
         //missing address
 
+        //11 is for voters
+        //22 for admin
+
     }
 }

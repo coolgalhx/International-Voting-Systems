@@ -33,7 +33,6 @@ namespace International_Voting_Systems
         }
 
 
-
         private void btnregistervoter_Click(object sender, RoutedEventArgs e)
         {
             
