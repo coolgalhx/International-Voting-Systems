@@ -14,7 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using static International_Voting_Systems.Class1;
+using static International_Voting_Systems.VoteRegisterationObserver;
 using static International_Voting_Systems.MainDBConext;
 
 namespace International_Voting_Systems

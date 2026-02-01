@@ -12,6 +12,7 @@ namespace International_Voting_Systems
         public class MainDatabaseContext : DbContext
         {
             public DbSet<Voter> Voters { get; set; }
+            public DbSet<Candidate> Candidates { get; set; }
 
 
 

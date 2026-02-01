@@ -1,0 +1,22 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace International_Voting_Systems
+{
+    internal class Candidate
+    {
+        public int CandidateID { get; set; }
+        public string CandidateFullName { get; set; }
+        public string CandidateEmail { get; set; }
+        public string CandidateAddress { get; set; }
+        public DateOnly CandidateDOB { get; set; }
+        public string CandidateCity { get; set; }
+        public string CandidateNationalInsuranceNumber { get; set; }
+
+        public string CandidateConstituency { get; set; }
+
+    }
+}

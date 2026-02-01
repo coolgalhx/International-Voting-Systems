@@ -7,14 +7,14 @@ using static International_Voting_Systems.MainDBConext;
 using System.Windows;
 using System.Xml.Linq;
 using System.Net.Mail;
-using static International_Voting_Systems.Class1;
+using static International_Voting_Systems.VoteRegisterationObserver;
 using System.Net;
 using System.Net.Mail;
 using System.Runtime.InteropServices.JavaScript;
 
 namespace International_Voting_Systems
 {
-    internal class Class1
+    internal class VoteRegisterationObserver
     {
         public interface IVoterObserver
         {
