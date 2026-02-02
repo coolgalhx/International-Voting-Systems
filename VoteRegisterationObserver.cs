@@ -9,12 +9,17 @@ using System.Xml.Linq;
 using System.Net.Mail;
 using static International_Voting_Systems.VoteRegisterationObserver;
 using System.Net;
-using System.Net.Mail;
 using System.Runtime.InteropServices.JavaScript;
+using MimeKit;
+using MailKit.Net.Smtp;
+using MailKit.Security;
+
+
 
 namespace International_Voting_Systems
 {
     internal class VoteRegisterationObserver
+
     {
         public interface IVoterObserver
         {
@@ -44,10 +49,10 @@ namespace International_Voting_Systems
         // state changes.
         public class Subject : IVoterSubject
         {
-            
-            public Voter RegisteredVoter { get; private set; } 
 
-            
+            public Voter RegisteredVoter { get; private set; }
+
+
             private List<IVoterObserver> _observers = new List<IVoterObserver>();
 
 
@@ -69,7 +74,7 @@ namespace International_Voting_Systems
                 }
             }
 
-            
+
             public void RegisterVoter(Voter voter)
             {
                 using (var db = new MainDatabaseContext())
@@ -83,7 +88,7 @@ namespace International_Voting_Systems
                     MessageBox.Show("New Voter Added!");
                 }
 
-                
+                this.RegisteredVoter = voter;
 
                 this.Notify();
             }
@@ -91,50 +96,84 @@ namespace International_Voting_Systems
 
         // Concrete Observers react to the updates issued by the Subject they had
         // been attached to.
-       
-        class EmailService : IVoterObserver
+
+        public class EmailService : IVoterObserver
         {
             public void Update(IVoterSubject subject)
-            {   
+            {
 
                 //I--> concrete class to access its data
                 Subject VoterSubject = subject as Subject;
 
-                if (VoterSubject != null || VoterSubject.RegisteredVoter == null)
+                if (VoterSubject == null || VoterSubject.RegisteredVoter == null)
                     return;
 
                 SendEmail(VoterSubject.RegisteredVoter.Email);
             }
             private void SendEmail(string votersemail)
-            {    
-                
-                var sender = "Hanatheapprentice@gmail.com";
-                var apppass = " ";
-               
+            {
 
-                var client = new SmtpClient("smtp.gmail.com", 587)
+                //var sender = "Hanatheapprentice@gmail.com";
+                //var apppass = "owrknppmatzfhfhk";
+
+
+                //var client = new SmtpClient("smtp.gmail.com", 587)
+                //{
+                //    EnableSsl = true,
+                //    Credentials = new NetworkCredential(sender, apppass)
+                //};
+
+                //var actualEmail = new MailMessage
+                //{
+                //    From = new MailAddress(sender),
+
+                //    Subject = "Voter Confirmation",
+                //    Body = "Thank you for registering to vote, ypur vote makes a difference!",
+                //    IsBodyHtml = true
+                //};
+
+                //actualEmail.To.Add(votersemail);
+                //client.Send(actualEmail);
+
+                try
                 {
-                    EnableSsl = true,
-                    Credentials = new NetworkCredential(sender, apppass)
-                };
+                    var sender = "Hanatheapprentice@gmail.com";
+                    var apppass = "owrknppmatzfhfhk";
 
-                var actualEmail = new MailMessage
+                    var message = new MimeMessage();
+                    message.From.Add(new MailboxAddress("Voting System", sender));
+                    message.To.Add(new MailboxAddress("", votersemail));
+                    message.Subject = "Voter Confirmation";
+                    message.Body = new TextPart("html") { Text = "Registration successful!" };
+
+                    using (var client = new MailKit.Net.Smtp.SmtpClient())
+                    {
+                        // Set a timeout so it doesn't hang forever
+                        client.Timeout = 10000;
+
+                        client.CheckCertificateRevocation = false; //
+
+
+                        client.Connect("smtp.gmail.com", 587, MailKit.Security.SecureSocketOptions.StartTls);
+                        client.Authenticate(sender, apppass);
+                        client.Send(message);
+                        client.Disconnect(true);
+                    }
+                    MessageBox.Show("Email sent successfully to " + votersemail);
+                }
+                catch (Exception ex)
                 {
-                    From = new MailAddress(sender),
-
-                    Subject = "Voter Confirmation",
-                    Body = "Thank you for registering to vote, ypur vote makes a difference!",
-                    IsBodyHtml = true
-                };
-
-                actualEmail.To.Add(votersemail);
-                client.Send(actualEmail);
+                    // This will tell you if it's an "Authentication Failed" or "Connection Timeout"
+                    MessageBox.Show("Email failed: " + ex.Message);
+                }
 
 
-                
 
-               
+
+
+
             }
+            
         }
     }
 }

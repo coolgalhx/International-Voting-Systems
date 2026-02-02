@@ -8,26 +8,14 @@
         Title="VoterRegisteration" Height="450" Width="800">
     <Grid>
         <TextBox Name="txtname" HorizontalAlignment="Left" Margin="228,50,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="138" Height="31"/>
-        <TextBox Name="txtage" HorizontalAlignment="Left" Margin="59,166,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="138" Height="31"/>
-        <TextBox Name="txtdob" HorizontalAlignment="Left" Margin="400,50,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="138" Height="31"/>
-        <TextBox Name="txtemail" HorizontalAlignment="Left" Margin="59,50,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="138" Height="31"/>
-        <TextBox Name="txtcontactnumber" HorizontalAlignment="Left" Margin="59,110,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="138" Height="32"/>
-        <TextBox Name="txtvoterid" HorizontalAlignment="Left" Margin="228,165,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="138" Height="32"/>
+        <TextBox Name="txtage" HorizontalAlignment="Left" Margin="59,166,0,0" TextWrapping="Wrap" Text="33" VerticalAlignment="Top" Width="138" Height="31"/>
+        <TextBox Name="txtdob" HorizontalAlignment="Left" Margin="400,50,0,0" TextWrapping="Wrap" Text="10.1.1999" VerticalAlignment="Top" Width="138" Height="31"/>
+        <TextBox Name="txtemail"  HorizontalAlignment="Left" Margin="59,50,0,0" TextWrapping="Wrap" Text="Hibaq1040@gmail.com" VerticalAlignment="Top" Width="138" Height="31"/>
+        <TextBox Name="txtcontactnumber" HorizontalAlignment="Left" Margin="59,110,0,0" TextWrapping="Wrap" Text="999" VerticalAlignment="Top" Width="138" Height="32"/>
+        <TextBox Name="txtvoterid" HorizontalAlignment="Left" Margin="228,165,0,0" TextWrapping="Wrap" Text="12345" VerticalAlignment="Top" Width="138" Height="32"/>
         <TextBox Name="txtgender" HorizontalAlignment="Left" Margin="228,110,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="138" Height="31"/>
         <Button Name="btnregistervoter" HorizontalAlignment="Left" Margin="400,110,0,0" VerticalAlignment="Top" Height="48" Width="138" Click="btnregistervoter_Click"/>
-        <Label Name="lblname" HorizontalAlignment="Left" Margin="279,326,0,0" VerticalAlignment="Top" Height="29" Width="56" Content="Name"/>
-        <ComboBox x:Name="TranslationCombo"
-          SelectionChanged="TranslatorCombo_SelectionChanged"
-          HorizontalAlignment="Left"
-          Margin="658,182,0,0"
-          VerticalAlignment="Top"
-          Width="120">
-
-            <ComboBoxItem Content="French" Tag="fr"/>
-            <ComboBoxItem Content="German" Tag="de"/>
-            <ComboBoxItem Content="Spanish" Tag="es"/>
-
-        </ComboBox>
+        <Label Name="lblname" HorizontalAlignment="Left" Margin="279,326,0,0" VerticalAlignment="Top" Height="26" Width="121" Content="Enter Your Name"/>
 
 
     </Grid>

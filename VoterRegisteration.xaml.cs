@@ -19,6 +19,8 @@ using static International_Voting_Systems.MainDBConext;
 using GTranslate.Translators;
 using System.Threading.Tasks.Dataflow;
 using static International_Voting_Systems.VoterAdapterPattern;
+using MailKit.Net.Smtp;
+using MimeKit;
 
 namespace International_Voting_Systems
 {
@@ -38,7 +40,8 @@ namespace International_Voting_Systems
 
             _translator = new TranslatorAdapter(new GTranslateAdaptee());
 
-            
+            EmailService emailObserver = new EmailService();
+            subject.Attach(emailObserver);
 
 
 
@@ -70,22 +73,9 @@ namespace International_Voting_Systems
         }
 
 
+
+
         
-
-        private async void TranslatorCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (TranslationCombo.SelectedItem is ComboBoxItem item)
-            {
-                string codeofLang = item.Tag.ToString();
-
-                lblname.Content = await _translator.TranslateAsync(
-                    lblname.Content.ToString(), codeofLang);
-
-
-            }
-
-
-        }
 
     }
 }

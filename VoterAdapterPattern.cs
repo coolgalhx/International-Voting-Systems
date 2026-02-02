@@ -13,7 +13,7 @@ namespace International_Voting_Systems
         // The Target defines the domain-specific interface used by the client code.
         public interface ITarget
         {
-            Task<string> TranslateAsync(string text, string toLang);
+            Task<string> TranslateAsync(string text, string fromLang, string toLang);
         }
 
         // The GTranslateAdaptee contains some useful behavior, but its interface is
@@ -41,7 +41,7 @@ namespace International_Voting_Systems
                 _adaptee = adaptee;
             }
 
-            public Task<string> TranslateAsync(string text, string toLang)
+            public Task<string> TranslateAsync(string text, string fromLang, string toLang)
             {
                 return _adaptee.TranslateAsync(text, toLang);
             }
