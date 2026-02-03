@@ -3,47 +3,66 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
+using System.Windows;
+using GTranslate;
 using GTranslate.Translators;
+using System.Windows.Controls;
 
 
 namespace International_Voting_Systems
 {
-    internal class VoterAdapterPattern
+    public class VoterAdapterPattern
     {
-        // The Target defines the domain-specific interface used by the client code.
-        public interface ITarget
+
+        public interface ITranslationService
         {
-            Task<string> TranslateAsync(string text, string fromLang, string toLang);
+            Task TranslateToFrench(params Label[] labels);
         }
 
-        // The GTranslateAdaptee contains some useful behavior, but its interface is
-        // incompatible with the existing client code. The GTranslateAdaptee needs some
+        // The VoterDatainEnAdaptee contains some useful behavior, but its interface is
+        // incompatible with the existing client code. The VoterDatainEnAdaptee needs some
         // adaptation before the client code can use it.
-        public class GTranslateAdaptee
+        public class VoterDatainEnAdaptee
         {
-            private readonly AggregateTranslator _translator = new();
-
-            public async Task<string> TranslateAsync(string text, string toLanguage)
+            public string ShowVoterData()
             {
-                var result = await _translator.TranslateAsync(text, "en", toLanguage);
-                return result.Translation;
+                return "Specific request.";
             }
         }
 
-        // The Adapter makes the GTranslateAdaptee's interface compatible with the Target's
+        // The VoterDataTranslatedAdapter makes the VoterDatainEnAdaptee's interface compatible with the Target's
         // interface.
-        public class TranslatorAdapter : ITarget
+        public class VoterDataTranslatedAdapter : ITranslationService
         {
-            private readonly GTranslateAdaptee _adaptee;
+            private readonly VoterDatainEnAdaptee _adaptee;
+            private readonly GoogleTranslator _translator = new GoogleTranslator();
 
-            public TranslatorAdapter(GTranslateAdaptee adaptee)
+
+
+            public VoterDataTranslatedAdapter(VoterDatainEnAdaptee adaptee)
             {
-                _adaptee = adaptee;
+                this._adaptee = adaptee;
             }
 
-            public Task<string> TranslateAsync(string text, string fromLang, string toLang)
+            public async Task TranslateToFrench(params Label[] labels)
             {
-                return _adaptee.TranslateAsync(text, toLang);
+                var translator = new GoogleTranslator();
+
+                //var allLabels = new[] { "lblname" };
+
+                foreach (var lbl in labels)
+                {
+                    if (lbl.Content is string text)
+                    {
+
+                        var result = await _translator.TranslateAsync(text, "fr");
+                        lbl.Content = result.Translation;
+                    }
+
+                }
+
+
             }
         }
     }

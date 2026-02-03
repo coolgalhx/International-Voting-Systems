@@ -6,6 +6,8 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using static International_Voting_Systems.MainDBConext;
+using MimeKit;
+using System.Windows;
 
 namespace International_Voting_Systems
 {
@@ -73,27 +75,48 @@ namespace International_Voting_Systems
 
             private void SendEmailtoCandidate(string candidateEmail)
             {
-                var sender = "Hanatheapprentice@gmail.com";
-                var apppass = " ";
-
-
-                var client = new SmtpClient("smtp.gmail.com", 587)
+                try
                 {
-                    EnableSsl = true,
-                    Credentials = new NetworkCredential(sender, apppass)
-                };
+                    var sender = "hanatheapprentice@gmail.com";
+                    var apppass = "owrknppmatzfhfhk";
 
-                var actualEmailtocandidate = new MailMessage
+                    var message = new MimeMessage();
+                    message.From.Add(new MailboxAddress("International Voting System", candidateEmail));
+                    message.To.Add(new MailboxAddress("", candidateEmail));
+                    message.Subject = "Candidate Registered";
+
+                    message.Body = new TextPart("plain")
+                    {
+                        Text = @"Voter registeration confirmed",
+
+
+                    };
+                    using (var client = new MailKit.Net.Smtp.SmtpClient())
+                    {
+
+                        //https://stackoverflow.com/questions/76153404/i-get-an-error-when-using-mailkit-to-send-a-gmail-email
+                        client.CheckCertificateRevocation = false;
+                        client.Connect("smtp.gmail.com", 587, MailKit.Security.SecureSocketOptions.StartTls);
+
+
+                        // Note: only needed if the SMTP server requires authentication
+                        client.Authenticate(sender, apppass);
+                        client.Send(message);
+                        client.Disconnect(true);
+
+                    }
+
+                    MessageBox.Show("Email successfully sent");
+
+                }
+                catch(Exception ex)
                 {
-                    From = new MailAddress(sender),
+                    MessageBox.Show(ex.Message);
+                }
 
-                    Subject = "Voter Confirmation",
-                    Body = "Thank you for registering to stand as a Candidate for you Constituent",
-                    IsBodyHtml = true
-                };
 
-                actualEmailtocandidate.To.Add(candidateEmail);
-                client.Send(actualEmailtocandidate);
+
+
             }
 
 

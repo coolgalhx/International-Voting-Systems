@@ -30,7 +30,7 @@ namespace International_Voting_Systems
     public partial class VoterRegisteration : Window
     {
         private Subject subject;
-        private readonly ITarget _translator;
+        private readonly ITranslationService _translator;
        
 
         public VoterRegisteration()
@@ -38,12 +38,14 @@ namespace International_Voting_Systems
             InitializeComponent();
             subject = new Subject();
 
-            _translator = new TranslatorAdapter(new GTranslateAdaptee());
+            //_translator = new TranslatorAdapter(new GTranslateAdaptee());
 
             
             EmailService es=new EmailService();
             subject.Attach(es);
 
+
+            
 
 
         }
@@ -73,13 +75,12 @@ namespace International_Voting_Systems
             
             
         }
-      
-        
 
-
-
-
-        
-
+        private async void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var adaptee = new VoterDatainEnAdaptee();
+            var adapter = new VoterDataTranslatedAdapter(adaptee);
+            await adapter.TranslateToFrench(lblname);
+        }
     }
 }
