@@ -40,8 +40,9 @@ namespace International_Voting_Systems
 
             _translator = new TranslatorAdapter(new GTranslateAdaptee());
 
-            EmailService emailObserver = new EmailService();
-            subject.Attach(emailObserver);
+            
+            EmailService es=new EmailService();
+            subject.Attach(es);
 
 
 
@@ -69,8 +70,11 @@ namespace International_Voting_Systems
 
             MessageBox.Show("New Voter Added!");
 
-
+            
+            
         }
+      
+        
 
 
 

@@ -110,70 +110,53 @@ namespace International_Voting_Systems
 
                 SendEmail(VoterSubject.RegisteredVoter.Email);
             }
-            private void SendEmail(string votersemail)
+            public void SendEmail(string votersemail)
+
+            //https://github.com/jstedfast/MailKit?tab=readme-ov-file
             {
-
-                //var sender = "Hanatheapprentice@gmail.com";
-                //var apppass = "owrknppmatzfhfhk";
-
-
-                //var client = new SmtpClient("smtp.gmail.com", 587)
-                //{
-                //    EnableSsl = true,
-                //    Credentials = new NetworkCredential(sender, apppass)
-                //};
-
-                //var actualEmail = new MailMessage
-                //{
-                //    From = new MailAddress(sender),
-
-                //    Subject = "Voter Confirmation",
-                //    Body = "Thank you for registering to vote, ypur vote makes a difference!",
-                //    IsBodyHtml = true
-                //};
-
-                //actualEmail.To.Add(votersemail);
-                //client.Send(actualEmail);
-
                 try
                 {
                     var sender = "Hanatheapprentice@gmail.com";
                     var apppass = "owrknppmatzfhfhk";
 
+
                     var message = new MimeMessage();
-                    message.From.Add(new MailboxAddress("Voting System", sender));
+                    message.From.Add(new MailboxAddress("International Voting System", sender));
                     message.To.Add(new MailboxAddress("", votersemail));
-                    message.Subject = "Voter Confirmation";
-                    message.Body = new TextPart("html") { Text = "Registration successful!" };
+                    message.Subject = "Voter Registered";
+
+                    message.Body = new TextPart("plain")
+                    {
+                        Text = @"Voter registeration confirmed",
+
+
+                    };
 
                     using (var client = new MailKit.Net.Smtp.SmtpClient())
                     {
-                        // Set a timeout so it doesn't hang forever
-                        client.Timeout = 10000;
 
-                        client.CheckCertificateRevocation = false; //
-
-
+                        //https://stackoverflow.com/questions/76153404/i-get-an-error-when-using-mailkit-to-send-a-gmail-email
+                        client.CheckCertificateRevocation = false;
                         client.Connect("smtp.gmail.com", 587, MailKit.Security.SecureSocketOptions.StartTls);
+                        
+
+                        // Note: only needed if the SMTP server requires authentication
                         client.Authenticate(sender, apppass);
+
                         client.Send(message);
                         client.Disconnect(true);
+
+
                     }
-                    MessageBox.Show("Email sent successfully to " + votersemail);
+                    MessageBox.Show("Email successfully sent");
                 }
                 catch (Exception ex)
                 {
-                    // This will tell you if it's an "Authentication Failed" or "Connection Timeout"
-                    MessageBox.Show("Email failed: " + ex.Message);
+                    MessageBox.Show(ex.Message);
                 }
-
-
-
-
-
+                
 
             }
-            
         }
     }
 }
