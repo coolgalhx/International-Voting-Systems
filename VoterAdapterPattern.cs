@@ -49,7 +49,7 @@ namespace International_Voting_Systems
             {
                 var translator = new GoogleTranslator();
 
-                //var allLabels = new[] { "lblname" };
+                
 
                 foreach (var lbl in labels)
                 {

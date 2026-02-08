@@ -5,7 +5,7 @@ using System.Net.Mail;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
-using static International_Voting_Systems.MainDBConext;
+//using static International_Voting_Systems.MainDBContext;
 using MimeKit;
 using System.Windows;
 

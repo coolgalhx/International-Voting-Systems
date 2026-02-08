@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace International_Voting_Systems
 {
-    internal class MainDBConext
-    {
+   
+    
         public class MainDatabaseContext : DbContext
         {
             public DbSet<Voter> Voters { get; set; }
@@ -22,5 +22,5 @@ namespace International_Voting_Systems
                 optionsBuilder.UseSqlite("Data Source=MainDB.db");
             }
         }
-    }
+    
 }

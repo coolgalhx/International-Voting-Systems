@@ -18,7 +18,13 @@ namespace International_Voting_Systems
 
         public double ContactNumber { get; set; }
 
-        //missing address
+        public string PostCode { get; set; }
+        public string City { get; set; }
+
+        public string Country { get; set; }
+
+        public bool IsApproved { get; set; } = true;
+        
 
         //11 is for voters
         //22 for admin

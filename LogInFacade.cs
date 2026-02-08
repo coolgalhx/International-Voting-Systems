@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static International_Voting_Systems.MainDBConext;
+//using static International_Voting_Systems.MainDBContext;
 
 namespace International_Voting_Systems
 {
@@ -12,14 +12,13 @@ namespace International_Voting_Systems
     {
         public bool LogIn (int voterid)
         {
-            if (voterid==voterid)
-            {
-                return false;
-            }
+            
 
             using (var db = new MainDatabaseContext())
             {
-               bool exists= db.Voters.Any(u=> u.VoterID == voterid);
+               bool exists= db.Voters.Any(v =>
+                v.VoterID == voterid &&
+                v.IsApproved == true); ;
                 return exists;
 
             }

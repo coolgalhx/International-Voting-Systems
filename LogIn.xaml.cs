@@ -36,7 +36,7 @@ namespace International_Voting_Systems
                 }
                 else
                 {
-                    MessageBox.Show("Error: Voter ID/Email incorrect");
+                    MessageBox.Show("Error: Voter ID or Account has been rejected");
                 }
             }
         }

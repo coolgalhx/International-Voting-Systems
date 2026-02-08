@@ -15,7 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using static International_Voting_Systems.VoteRegisterationObserver;
-using static International_Voting_Systems.MainDBConext;
+//using static International_Voting_Systems.MainDBContext;
 using GTranslate.Translators;
 using System.Threading.Tasks.Dataflow;
 using static International_Voting_Systems.VoterAdapterPattern;
@@ -76,8 +76,10 @@ namespace International_Voting_Systems
             
         }
 
-        private async void Button_Click(object sender, RoutedEventArgs e)
+        private async void Translate_Click(object sender, RoutedEventArgs e)
         {
+            //https://github.com/d4n3436/GTranslate
+
             var adaptee = new VoterDatainEnAdaptee();
             var adapter = new VoterDataTranslatedAdapter(adaptee);
             await adapter.TranslateToFrench(lblname);

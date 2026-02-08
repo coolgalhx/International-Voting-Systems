@@ -16,7 +16,7 @@
         <TextBox Name="txtgender" HorizontalAlignment="Left" Margin="228,110,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="138" Height="31"/>
         <Button Name="btnregistervoter" HorizontalAlignment="Left" Margin="400,110,0,0" VerticalAlignment="Top" Height="48" Width="138" Click="btnregistervoter_Click"/>
         <Label Name="lblname" HorizontalAlignment="Left" Margin="400,229,0,0" VerticalAlignment="Top" Height="26" Width="121" Content="Enter Your Name"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="609,126,0,0" VerticalAlignment="Top" Height="28" Width="70" Click="Button_Click"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="609,126,0,0" VerticalAlignment="Top" Height="28" Width="70" Click="Translate_Click"/>
 
 
     </Grid>

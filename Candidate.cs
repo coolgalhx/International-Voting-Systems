@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace International_Voting_Systems
 {
-    internal class Candidate
+    public class Candidate
     {
         public int CandidateID { get; set; }
         public string CandidateFullName { get; set; }
