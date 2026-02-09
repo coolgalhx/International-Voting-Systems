@@ -5,7 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace International_Voting_Systems
-{
+{    
+
+    //THE MODEL
     public class Voter
     {
         public int VoterID { get; set; }

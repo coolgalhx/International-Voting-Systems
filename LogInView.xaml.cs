@@ -17,6 +17,8 @@ namespace International_Voting_Systems
     /// <summary>
     /// Interaction logic for LogIn.xaml
     /// </summary>
+    /// 
+
     public partial class LogIn : Window
     {
         public LogIn()

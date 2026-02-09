@@ -29,6 +29,9 @@ namespace International_Voting_Systems
     /// <summary>
     /// Interaction logic for VoterRegisteration.xaml
     /// </summary>
+    /// 
+
+   
     public partial class VoterRegisteration : Window
     {
         private Subject subject;
@@ -66,6 +69,9 @@ namespace International_Voting_Systems
                 Gender = txtgender.Text,
                 DOB = Convert.ToDateTime(txtdob.Text),
                 ContactNumber = Convert.ToDouble(txtcontactnumber.Text),
+                City=txtcity.Text,
+                Country=txtcountry.Text,
+                PostCode=txtpostcode.Text,
 
             };
 
