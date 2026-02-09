@@ -14,13 +14,15 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using static International_Voting_Systems.VoteRegisterationObserver;
+//using static International_Voting_Systems.VoteRegisterationObserver;
 //using static International_Voting_Systems.MainDBContext;
 using GTranslate.Translators;
 using System.Threading.Tasks.Dataflow;
-using static International_Voting_Systems.VoterAdapterPattern;
+//using static International_Voting_Systems.VoterAdapterPattern.ITranslationService;
+using International_Voting_Systems.VoterRegObserver;
 using MailKit.Net.Smtp;
 using MimeKit;
+using International_Voting_Systems.VoterAdapterPattern;
 
 namespace International_Voting_Systems
 {

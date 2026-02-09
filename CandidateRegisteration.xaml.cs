@@ -11,6 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+//using International_Voting_Systems.CandidateObserverPattern;
+
+
 
 namespace International_Voting_Systems
 {
@@ -19,11 +22,11 @@ namespace International_Voting_Systems
     /// </summary>
     public partial class CandidateRegisteration : Window
     {
-        private CandidateRegistrationObserver.Subject subject;
+        private CandObserverPattern.Subject subject;
         public CandidateRegisteration()
         {
             InitializeComponent();
-            subject = new CandidateRegistrationObserver.Subject();
+            subject = new CandObserverPattern.Subject();
         }
 
         private void Btnregistercandidate_Click(object sender, RoutedEventArgs e)
