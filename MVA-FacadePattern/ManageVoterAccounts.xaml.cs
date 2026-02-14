@@ -29,25 +29,40 @@ namespace International_Voting_Systems
         }
         public void LoadAllVoters()
         {
-            using (var db = new MainDatabaseContext())
-            {
-                db.Database.EnsureCreated();
-                var voterAccountsList = db.Voters.ToList();
+            //using (var db = new MainDatabaseContext())
+            //{
+            //    db.Database.EnsureCreated();
+            //    var voterAccountsList = db.Voters.ToList();
 
-                if (voterAccountsList != null)
-                {
-                    VoterAccounts = new ObservableCollection<Voter>(voterAccountsList);
-                }
-                else
-                {
-                    //if no data datagrid shows as empty
-                    VoterAccounts = new ObservableCollection<Voter>();
-                }
-                datagridvoters.ItemsSource = VoterAccounts;
-            }
+            //    if (voterAccountsList != null)
+            //    {
+            //        VoterAccounts = new ObservableCollection<Voter>(voterAccountsList);
+            //    }
+            //    else
+            //    {
+            //        //if no data datagrid shows as empty
+            //        VoterAccounts = new ObservableCollection<Voter>();
+            //    }
+            //    datagridvoters.ItemsSource = VoterAccounts;
+            //}
+
+            var MVAFacade = new MVAFacade();
+            var voters = MVAFacade.ListAllVoters();
+            VoterAccounts = new ObservableCollection<Voter>(voters);
+            datagridvoters.ItemsSource = VoterAccounts;
+
         }
 
+        public void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (datagridvoters.SelectedItem is Voter selectedvoteraccount)
+            {
+                var MVAFacade = new MVAFacade();
+                MVAFacade.RejectVoter(selectedvoteraccount.VoterID);
+                VoterAccounts.Remove(selectedvoteraccount);
+            }
 
+        }
     }
     
     

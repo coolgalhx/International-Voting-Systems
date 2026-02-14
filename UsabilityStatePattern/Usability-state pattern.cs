@@ -89,13 +89,13 @@ namespace International_Voting_Systems.UsabilityStatePattern
         {
 
             DarkNet.Instance.SetWindowThemeWpf(window, Theme.Dark);
-            _context.TransitionTo(new DarkToLight());
+           // _context.TransitionTo(new DarkToLight());
         }
 
         public override void Handle2()
         {
 
-            // this._context.TransitionTo(new LightToDark());
+             this._context.TransitionTo(new LightToDark());
         }
 
     }

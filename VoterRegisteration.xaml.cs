@@ -23,6 +23,8 @@ using International_Voting_Systems.VoterRegObserver;
 using MailKit.Net.Smtp;
 using MimeKit;
 using International_Voting_Systems.VoterAdapterPattern;
+using International_Voting_Systems.UsabilityStatePattern;
+
 
 namespace International_Voting_Systems
 {
@@ -36,6 +38,7 @@ namespace International_Voting_Systems
     {
         private Subject subject;
         private readonly ITranslationService _translator;
+        private ThemeContext _themeContext;
        
 
         public VoterRegisteration()
@@ -50,9 +53,16 @@ namespace International_Voting_Systems
             subject.Attach(es);
 
 
-            
+            _themeContext = new ThemeContext(new DarkToLight());
 
 
+        }
+        protected override void OnSourceInitialized(EventArgs e)
+        {
+            base.OnSourceInitialized(e);
+
+            // Apply theme safely here
+            _themeContext.Request1(this);
         }
 
 
@@ -92,5 +102,32 @@ namespace International_Voting_Systems
             var adapter = new VoterDataTranslatedAdapter(adaptee);
             await adapter.TranslateToFrench(lblname);
         }
+        private void LoadTheme(string themePath)
+        {
+            Application.Current.Resources.MergedDictionaries.Clear();
+            Application.Current.Resources.MergedDictionaries.Add(
+                new ResourceDictionary()
+                {
+                    Source = new Uri(themePath, UriKind.Relative)
+                });
+        }
+
+        private void ThemeCheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            _themeContext.TransitionTo(new DarkToLight());
+            _themeContext.Request1(this);
+
+            LoadTheme("Themes/Light.xaml");
+
+
+        }
+        private void ThemeCheckBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            _themeContext.TransitionTo(new LightToDark());
+            _themeContext.Request1(this);
+
+            LoadTheme("Themes/Dark.xaml");
+        }
+
     }
 }

@@ -5,8 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:International_Voting_Systems"
         mc:Ignorable="d"
-        Title="VoterRegisteration" Height="450" Width="800">
-    <Grid>
+        Title="VoterRegisteration"
+         Height="450"
+         Width="800"
+         Background="{DynamicResource WindowBackground}">
+
+     <Grid Background="{DynamicResource WindowBackground}">
+
         <TextBox Name="txtname" HorizontalAlignment="Left" Margin="228,50,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="138" Height="31"/>
         <TextBox Name="txtage" HorizontalAlignment="Left" Margin="59,166,0,0" TextWrapping="Wrap" Text="33" VerticalAlignment="Top" Width="138" Height="31"/>
         <TextBox Name="txtdob" HorizontalAlignment="Left" Margin="400,50,0,0" TextWrapping="Wrap" Text="10.1.1999" VerticalAlignment="Top" Width="138" Height="31"/>
@@ -20,7 +25,11 @@
         <TextBox Name="txtcity" HorizontalAlignment="Left" Margin="59,242,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="136" Height="31"/>
         <TextBox Name="txtcountry" HorizontalAlignment="Left" Margin="59,313,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="136" Height="31"/>
         <TextBox Name="txtpostcode" HorizontalAlignment="Left" Margin="228,274,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="136" Height="31"/>
+        <CheckBox Content="LightMode" HorizontalAlignment="Left" Margin="564,344,0,0" VerticalAlignment="Top" Checked="ThemeCheckBox_Checked" Unchecked="ThemeCheckBox_Unchecked"/>
 
 
+
+
+        
     </Grid>
 </Window>
