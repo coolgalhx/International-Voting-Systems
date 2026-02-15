@@ -6,30 +6,59 @@
         xmlns:local="clr-namespace:International_Voting_Systems"
         mc:Ignorable="d"
         Title="VoterRegisteration"
-         Height="450"
-         Width="800"
-         Background="{DynamicResource WindowBackground}">
+        Height="450"
+        Width="800"
+        Background="{DynamicResource WindowBackground}">
 
-     <Grid Background="{DynamicResource WindowBackground}">
+    <Grid Background="{DynamicResource WindowBackground}">
 
-        <TextBox Name="txtname" HorizontalAlignment="Left" Margin="228,50,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="138" Height="31"/>
-        <TextBox Name="txtage" HorizontalAlignment="Left" Margin="59,166,0,0" TextWrapping="Wrap" Text="33" VerticalAlignment="Top" Width="138" Height="31"/>
-        <TextBox Name="txtdob" HorizontalAlignment="Left" Margin="400,50,0,0" TextWrapping="Wrap" Text="10.1.1999" VerticalAlignment="Top" Width="138" Height="31"/>
-        <TextBox Name="txtemail"  HorizontalAlignment="Left" Margin="59,50,0,0" TextWrapping="Wrap" Text="Hibaq1040@gmail.com" VerticalAlignment="Top" Width="138" Height="31"/>
-        <TextBox Name="txtcontactnumber" HorizontalAlignment="Left" Margin="59,110,0,0" TextWrapping="Wrap" Text="999" VerticalAlignment="Top" Width="138" Height="32"/>
-        <TextBox Name="txtvoterid" HorizontalAlignment="Left" Margin="228,165,0,0" TextWrapping="Wrap" Text="12345" VerticalAlignment="Top" Width="138" Height="32"/>
-        <TextBox Name="txtgender" HorizontalAlignment="Left" Margin="228,110,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="138" Height="31"/>
-        <Button Name="btnregistervoter" HorizontalAlignment="Left" Margin="400,110,0,0" VerticalAlignment="Top" Height="48" Width="138" Click="btnregistervoter_Click"/>
-        <Label Name="lblname" HorizontalAlignment="Left" Margin="400,229,0,0" VerticalAlignment="Top" Height="26" Width="121" Content="Enter Your Name"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="609,126,0,0" VerticalAlignment="Top" Height="28" Width="70" Click="Translate_Click"/>
-        <TextBox Name="txtcity" HorizontalAlignment="Left" Margin="59,242,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="136" Height="31"/>
-        <TextBox Name="txtcountry" HorizontalAlignment="Left" Margin="59,313,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="136" Height="31"/>
-        <TextBox Name="txtpostcode" HorizontalAlignment="Left" Margin="228,274,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="136" Height="31"/>
-        <CheckBox Content="LightMode" HorizontalAlignment="Left" Margin="564,344,0,0" VerticalAlignment="Top" Checked="ThemeCheckBox_Checked" Unchecked="ThemeCheckBox_Unchecked"/>
+       
+        <Label Name="lblname" Content="Enter Your Name" HorizontalAlignment="Left" Margin="226,10,0,0" VerticalAlignment="Top" Width="140"/>
+        <TextBox Name="txtname" HorizontalAlignment="Left" Margin="226,35,0,0" VerticalAlignment="Top" Width="140" Height="30"/>
 
-
-
+       
+        <Label Name="lblemail" Content="Email" HorizontalAlignment="Left" Margin="57,35,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtemail" HorizontalAlignment="Left" Margin="57,60,0,0" VerticalAlignment="Top" Width="140" Height="30" Text="Hibaq1040@gmail.com"/>
 
         
+        <Label Name="lblgender" Content="Gender" HorizontalAlignment="Left" Margin="226,80,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtgender" HorizontalAlignment="Left" Margin="226,105,0,0" VerticalAlignment="Top" Width="140" Height="30"/>
+
+       
+        <Label Name="lblvoterid" Content="Voter ID" HorizontalAlignment="Left" Margin="57,100,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtvoterid" HorizontalAlignment="Left" Margin="57,125,0,0" VerticalAlignment="Top" Width="140" Height="30" Text="12345"/>
+
+       
+        <Label Name="lblage" Content="Age" HorizontalAlignment="Left" Margin="57,160,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtage" HorizontalAlignment="Left" Margin="57,185,0,0" VerticalAlignment="Top" Width="140" Height="30" Text="33"/>
+
+       
+        <Label Name="lblcontactnumber" Content="Contact Number" HorizontalAlignment="Left" Margin="226,160,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtcontactnumber" HorizontalAlignment="Left" Margin="226,185,0,0" VerticalAlignment="Top" Width="140" Height="30" Text="999"/>
+
+      
+        <Label Name="lblcity" Content="City" HorizontalAlignment="Left" Margin="57,220,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtcity" HorizontalAlignment="Left" Margin="57,245,0,0" VerticalAlignment="Top" Width="140" Height="30"/>
+
+      
+        <Label Name="lblpostcode" Content="Postcode" HorizontalAlignment="Left" Margin="226,220,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtpostcode" HorizontalAlignment="Left" Margin="226,245,0,0" VerticalAlignment="Top" Width="140" Height="30"/>
+
+       
+        <Label Name="lblcountry" Content="Country" HorizontalAlignment="Left" Margin="57,280,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtcountry" HorizontalAlignment="Left" Margin="57,305,0,0" VerticalAlignment="Top" Width="140" Height="30"/>
+
+       
+        <Label Name="lbldob" Content="DOB" HorizontalAlignment="Left" Margin="226,280,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtdob" HorizontalAlignment="Left" Margin="226,305,0,0" VerticalAlignment="Top" Width="140" Height="30" Text="10.1.1999"/>
+
+      
+        <Button Name="btnregistervoter" Content="Register" HorizontalAlignment="Left" Margin="130,365,0,0" VerticalAlignment="Top" Width="150" Height="45" Click="btnregistervoter_Click"/>
+        <Button Name="btntranslate" Content="Translate" HorizontalAlignment="Left" Margin="460,60,0,0" VerticalAlignment="Top" Width="75" Height="28" Click="Translate_Click"/>
+
+      
+        <CheckBox Name="chklightmode" Content="LightMode" HorizontalAlignment="Right" Margin="0,15,20,0" VerticalAlignment="Top"
+                  Checked="ThemeCheckBox_Checked" Unchecked="ThemeCheckBox_Unchecked"/>
+
     </Grid>
 </Window>

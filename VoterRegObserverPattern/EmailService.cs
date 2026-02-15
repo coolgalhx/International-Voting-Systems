@@ -23,6 +23,7 @@ namespace International_Voting_Systems.VoterRegObserver
         }
         public void SendEmail(string votersemail)
 
+          
         //https://github.com/jstedfast/MailKit?tab=readme-ov-file
         {
             try
