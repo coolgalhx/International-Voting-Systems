@@ -100,7 +100,8 @@ namespace International_Voting_Systems
 
             var adaptee = new VoterDatainEnAdaptee();
             var adapter = new VoterDataTranslatedAdapter(adaptee);
-            await adapter.TranslateToFrench(lblname);
+            await adapter.TranslateToFrench(lblname, lblage,lblcity,lblcontactnumber,lblemail,lblpostcode,lblgender
+               ,lblvoterid);
         }
         private void LoadTheme(string themePath)
         {

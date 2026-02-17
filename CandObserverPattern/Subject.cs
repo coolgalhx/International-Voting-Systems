@@ -13,17 +13,18 @@ namespace International_Voting_Systems.CandObserverPattern
         private List<ICandidateObserver> _observers = new List<ICandidateObserver>();
 
 
-        void ICandidateSubject.Attcatch(ICandidateObserver observer)
-        {
+       public void Attatch(ICandidateObserver observer)
+       {
             _observers.Add(observer);
-        }
+       }
 
-        void ICandidateSubject.Detach(ICandidateObserver observer)
-        {
+       public  void Detach(ICandidateObserver observer)
+       {
             _observers.Remove(observer);
-        }
+        
+       }
 
-        void ICandidateSubject.Notify()
+        public void Notify()
         {
             foreach (var observer in _observers)
             {

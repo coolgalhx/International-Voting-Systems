@@ -8,7 +8,7 @@ namespace International_Voting_Systems.CandObserverPattern
 {
     public interface ICandidateSubject
     {
-        void Attcatch(ICandidateObserver observer);
+        void Attatch(ICandidateObserver observer);
         void Detach(ICandidateObserver observer);
         void Notify();
     }

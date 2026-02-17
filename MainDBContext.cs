@@ -13,6 +13,8 @@ namespace International_Voting_Systems
         {
             public DbSet<Voter> Voters { get; set; }
             public DbSet<Candidate> Candidates { get; set; }
+            
+            public DbSet<Code> Codes { get; set; }
 
 
 

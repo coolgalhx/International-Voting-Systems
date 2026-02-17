@@ -33,7 +33,7 @@ namespace International_Voting_Systems.CandObserverPattern
 
                 message.Body = new TextPart("plain")
                 {
-                    Text = @"Voter registeration confirmed",
+                    Text = @"Candidate registeration confirmed",
 
 
                 };

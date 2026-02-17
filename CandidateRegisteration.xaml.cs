@@ -1,4 +1,5 @@
-﻿using System;
+﻿using International_Voting_Systems.CandObserverPattern;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,14 +28,25 @@ namespace International_Voting_Systems
         {
             InitializeComponent();
             subject = new CandObserverPattern.Subject();
+
+            EmailService es2=new EmailService();
+             subject.Attatch(es2);
         }
 
         private void Btnregistercandidate_Click(object sender, RoutedEventArgs e)
         {
-            var newCandidate = new Candidate();
+            var newCandidate = new Candidate()
             {
+                CandidateID = Convert.ToInt32(txtCandidateID.Text),
+                CandidateFullName = txtCandidateFullName.Text,
+                CandidateEmail = txtCandidateEmail.Text,
+                CandidateAddress = txtCandidateAddress.Text,
+                CandidateDOB = DateOnly.Parse(txtCandidateDOB.Text),
+                CandidateCity = txtCandidateCity.Text,
+                CandidateNationalInsuranceNumber = txtCandidateNI.Text,
+                CandidateConstituency = txtCandidateConstituency.Text
 
-                //textboxes
+
 
             };
 
