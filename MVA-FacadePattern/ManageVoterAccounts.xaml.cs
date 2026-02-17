@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.Storage;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -29,22 +30,7 @@ namespace International_Voting_Systems
         }
         public void LoadAllVoters()
         {
-            //using (var db = new MainDatabaseContext())
-            //{
-            //    db.Database.EnsureCreated();
-            //    var voterAccountsList = db.Voters.ToList();
-
-            //    if (voterAccountsList != null)
-            //    {
-            //        VoterAccounts = new ObservableCollection<Voter>(voterAccountsList);
-            //    }
-            //    else
-            //    {
-            //        //if no data datagrid shows as empty
-            //        VoterAccounts = new ObservableCollection<Voter>();
-            //    }
-            //    datagridvoters.ItemsSource = VoterAccounts;
-            //}
+            
 
             var MVAFacade = new MVAFacade();
             var voters = MVAFacade.ListAllVoters();
@@ -53,7 +39,7 @@ namespace International_Voting_Systems
 
         }
 
-        public void Button_Click(object sender, RoutedEventArgs e)
+        public void Btnreject_Click(object sender, RoutedEventArgs e)
         {
             if (datagridvoters.SelectedItem is Voter selectedvoteraccount)
             {
@@ -61,6 +47,20 @@ namespace International_Voting_Systems
                 MVAFacade.RejectVoter(selectedvoteraccount.VoterID);
                 VoterAccounts.Remove(selectedvoteraccount);
             }
+
+        }
+
+        private void BtnClearTable_Click_1(object sender, RoutedEventArgs e)
+        {
+            DataRetension dr =  DataRetension.GetInstance();
+            dr.DeleteVoterTable();
+            using var db = new MainDatabaseContext();
+
+            VoterAccounts = new ObservableCollection<Voter>(db.Voters.ToList());
+            datagridvoters.ItemsSource = VoterAccounts;
+
+
+
 
         }
     }

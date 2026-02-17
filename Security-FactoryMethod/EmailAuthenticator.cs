@@ -2,115 +2,18 @@
 using MimeKit;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using static Org.BouncyCastle.Crypto.Engines.SM2Engine;
 
-namespace International_Voting_Systems
+namespace International_Voting_Systems.Security
 {
-    public abstract class AuthenticationFactory
-
-    {
-
-        public abstract IAuthenticator FactoryMethod();
-
-    }
-
-
-
-    public class CredentialsAuthenticationFactory : AuthenticationFactory
-
-    {
-
-        public override IAuthenticator FactoryMethod()
-
-        {
-
-            return new CredentialAuthenticator();
-
-        }
-
-    }
-
-
-    public class EmailAuthenticationFactory : AuthenticationFactory
-
-    {
-
-        public override IAuthenticator FactoryMethod()
-
-        {
-
-            return new EmailAuthenticator();
-
-        }
-
-    } 
-
-
-
-    public interface IAuthenticator
-
-    {
-
-         Task<bool> AuthenticateAsync(string voterId, string code = "");
-
-    }
-
-
-
-    public class CredentialAuthenticator : IAuthenticator
-
-    {
-
-        public async Task <bool> AuthenticateAsync(string voterId, string code = "")
-
-        {
-
-            if (int.TryParse(voterId, out int username))
-
-            {
-
-                var facade = new LogInFacade();
-
-                if (facade.LogIn(username))
-
-                {
-
-                    MessageBox.Show("Welcome");
-
-                    return true;
-
-                }
-
-                else
-
-                {
-
-                    MessageBox.Show("Error: Voter ID incorrect or Account has been Suspended");
-
-                    return false;
-
-                }
-
-            }
-
-             return false;
-
-        }
-
-    }
-
-
-
     public class EmailAuthenticator : IAuthenticator
 
     {
-       
+
 
         public async Task<bool> AuthenticateAsync(string voterId, string code = "")
 
@@ -276,3 +179,4 @@ namespace International_Voting_Systems
 
     }
 }
+

@@ -17,7 +17,7 @@ namespace International_Voting_Systems
     {
         // The DataRetension's constructor should always be private to prevent
         // direct construction calls with the `new` operator.
-        private DataRetension() { }
+        public DataRetension() { }
 
         // The DataRetension's instance is stored in a static field. There there are
         // multiple ways to initialize this field, all of them have various pros
@@ -45,6 +45,7 @@ namespace International_Voting_Systems
             using var context = new MainDatabaseContext();
 
             context.Database.ExecuteSqlRaw("DELETE FROM Voters");
+            
         }
 
 
