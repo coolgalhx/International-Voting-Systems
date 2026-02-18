@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace International_Voting_Systems.Migrations
 {
     [DbContext(typeof(MainDatabaseContext))]
-    [Migration("20260218162728_InitialCreate")]
+    [Migration("20260218203900_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -103,6 +103,9 @@ namespace International_Voting_Systems.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("TEXT");
+
                     b.Property<DateTime>("DOB")
                         .HasColumnType("TEXT");
 
@@ -115,6 +118,9 @@ namespace International_Voting_Systems.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<bool>("IsApproved")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("IsSuspended")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Name")

@@ -31,7 +31,36 @@ namespace International_Voting_Systems
 
             }
         }
-        
+        public void ApproveVoter(int voterid)
+        {
+            using (var db = new MainDatabaseContext())
+            {
+                var voter = db.Voters.Find(voterid);
+
+                if (voter != null)
+                {
+                    voter.IsApproved = true;
+                    voter.IsSuspended = false;
+                    db.SaveChanges();
+                }
+
+            }
+        }
+        public void SuspendVoter(int voterid)
+        {
+            using (var db = new MainDatabaseContext())
+            {
+                var voter = db.Voters.Find(voterid);
+
+                if (voter != null)
+                {
+                   // voter.IsApproved = false;
+                    voter.IsSuspended = true;
+                    db.SaveChanges();
+                }
+
+            }
+        }
     }
 
     

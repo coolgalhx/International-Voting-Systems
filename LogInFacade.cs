@@ -18,7 +18,8 @@ namespace International_Voting_Systems
             {
                bool exists= db.Voters.Any(v =>
                 v.VoterID == voterid &&
-                v.IsApproved == true); ;
+                v.IsApproved == true &&
+                v.IsSuspended == false); 
                 return exists;
 
             }

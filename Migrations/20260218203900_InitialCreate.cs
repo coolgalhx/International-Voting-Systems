@@ -45,7 +45,9 @@ namespace International_Voting_Systems.Migrations
                     PostCode = table.Column<string>(type: "TEXT", nullable: false),
                     City = table.Column<string>(type: "TEXT", nullable: false),
                     Country = table.Column<string>(type: "TEXT", nullable: false),
-                    IsApproved = table.Column<bool>(type: "INTEGER", nullable: false)
+                    IsApproved = table.Column<bool>(type: "INTEGER", nullable: false),
+                    IsSuspended = table.Column<bool>(type: "INTEGER", nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {

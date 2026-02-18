@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -40,11 +41,25 @@ namespace International_Voting_Systems
 
         // Finally, any singleton should define some business logic, which can
         // be executed on its instance.
-        public void DeleteVoterTable()
-        {
-            using var context = new MainDatabaseContext();
+        public void DeleteVotersOlderthan6Months()
+        { 
+            var warning = MessageBox.Show("Are you sure you'd like to proceed? " +
+                "You will be deleting all votes who have been in this system for 6 months or more", "Data Deletion Warning",
+                MessageBoxButton.YesNo);
+            if (warning != MessageBoxResult.Yes)
+            {
+                MessageBox.Show("Deletion Cancelled");
+                return;
+            }
+            else
+            {
+                using var context = new MainDatabaseContext();
+                DateTime sixMonthsAgo = DateTime.Now.AddMonths(-6);
 
-            context.Database.ExecuteSqlRaw("DELETE FROM Voters");
+                context.Database.ExecuteSqlRaw("DELETE FROM Voters WHERE CreatedDate < {0}", sixMonthsAgo);
+            }
+            
+            
             
         }
 

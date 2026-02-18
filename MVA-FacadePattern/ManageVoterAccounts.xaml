@@ -3,10 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="ManageVoterAccounts" Height="450" Width="800">
 
-    <Grid>
+    <Grid Background="#FFCBC6E3">
 
     
-        <DataGrid x:Name="datagridvoters" ItemsSource="{Binding Voters}" AutoGenerateColumns="True" IsReadOnly="True" Margin="0,0,0,169" />
+        <DataGrid x:Name="datagridvoters" ItemsSource="{Binding Voters}" AutoGenerateColumns="True" IsReadOnly="False" Margin="0,0,0,169" />
 
         <Button Name="btnReject" Content="Reject" HorizontalAlignment="Left" Margin="180,293,0,0" VerticalAlignment="Top" Height="80" Width="194" Click="Btnreject_Click" Background="#E74C3C" Foreground="White" FontWeight="Bold" BorderBrush="#7A1F16" BorderThickness="3"/>
 

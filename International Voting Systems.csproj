@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <None Remove="Security-FactoryMethod\eu-logo-big.png" />
+    <None Remove="sound-symbol-2.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -25,10 +26,12 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="System.Speech" Version="10.0.3" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Security-FactoryMethod\eu-logo-big.png" />
+    <Resource Include="sound-symbol-2.png" />
   </ItemGroup>
 
 </Project>

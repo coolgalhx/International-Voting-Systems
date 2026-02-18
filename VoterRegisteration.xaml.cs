@@ -21,6 +21,8 @@ using MailKit.Net.Smtp;
 using MimeKit;
 using International_Voting_Systems.VoterAdapterPattern;
 using International_Voting_Systems.UsabilityStatePattern;
+using System.Speech.Synthesis;
+
 
 
 namespace International_Voting_Systems
@@ -36,7 +38,9 @@ namespace International_Voting_Systems
         private Subject subject;
         private readonly ITranslationService _translator;
         private ThemeContext _themeContext;
-       
+        bool IsSpeaking = false;
+        SpeechSynthesizer speaker = new SpeechSynthesizer();
+
 
         public VoterRegisteration()
         {
@@ -53,6 +57,18 @@ namespace International_Voting_Systems
             _themeContext = new ThemeContext(new DarkToLight());
 
 
+        }
+        private double zoom = 1.0;
+
+        private void Window_MouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            if (e.Delta > 0)
+                zoom += 0.1;
+            else if (zoom > 0.5)
+                zoom -= 0.1;
+
+            zoomTransform.ScaleX = zoom;
+            zoomTransform.ScaleY = zoom;
         }
         protected override void OnSourceInitialized(EventArgs e)
         {
@@ -83,11 +99,7 @@ namespace International_Voting_Systems
             };
 
             subject.RegisterVoter(newVoter);
-
-
-            MessageBox.Show("New Voter Added!");
-
-            
+ 
             
         }
 
@@ -98,7 +110,7 @@ namespace International_Voting_Systems
             var adaptee = new VoterDatainEnAdaptee();
             var adapter = new VoterDataTranslatedAdapter(adaptee);
             await adapter.TranslateToFrench(lblname, lblage,lblcity,lblcontactnumber,lblemail,lblpostcode,lblgender
-               ,lblvoterid);
+               ,lblvoterid,lblcountry,lbldob);
         }
         private void LoadTheme(string themePath)
         {
@@ -127,5 +139,67 @@ namespace International_Voting_Systems
             LoadTheme("Themes/Dark.xaml");
         }
 
+        private  async void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+            if (IsSpeaking)  
+            {
+                speaker.SpeakAsyncCancelAll();
+                ResetLabelColours();
+                IsSpeaking = false;
+                return;
+            }
+
+            IsSpeaking = true;
+
+            var labels = new Label[]
+            {
+                 lblname,
+                 lblemail,
+                 lblvoterid,
+                 lblgender,
+                 lblage,
+                 lblcontactnumber,
+                 lblcity,
+                 lblpostcode,
+                 lblcountry,
+                 lbldob
+            };
+
+            foreach (var lbl in labels)
+            {
+                if (!IsSpeaking) break;
+
+               
+                lbl.Foreground = Brushes.BlueViolet;
+                lbl.FontWeight = FontWeights.Bold;
+
+                if (lbl.Content is string text)
+                {
+                    await Task.Run(() => speaker.Speak(text));
+                    
+                }
+
+                lbl.Foreground = Brushes.Black;
+                lbl.FontWeight = FontWeights.Normal;
+            }
+            IsSpeaking = false;
+        }
+
+
+        private void ResetLabelColours()
+        {
+            var labels = new Label[]
+            {
+               lblname, lblage, lblcity, lblcontactnumber,
+               lblemail, lblpostcode, lblgender, lblvoterid
+            };
+
+            foreach (var lbl in labels)
+            {
+                lbl.Foreground = Brushes.Black;
+                lbl.FontWeight = FontWeights.Normal;
+            }
+        }
     }
 }

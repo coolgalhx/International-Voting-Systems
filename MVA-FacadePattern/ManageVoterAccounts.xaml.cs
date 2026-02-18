@@ -53,7 +53,7 @@ namespace International_Voting_Systems
         private void BtnClearTable_Click_1(object sender, RoutedEventArgs e)
         {
             DataRetension dr =  DataRetension.GetInstance();
-            dr.DeleteVoterTable();
+            dr.DeleteVotersOlderthan6Months();
             using var db = new MainDatabaseContext();
 
             VoterAccounts = new ObservableCollection<Voter>(db.Voters.ToList());
