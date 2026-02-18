@@ -10,17 +10,21 @@ namespace International_Voting_Systems
 {
     class LogInFacade
     {
+
+        
         public bool LogIn (int voterid)
         {
             
 
             using (var db = new MainDatabaseContext())
             {
-               bool exists= db.Voters.Any(v =>
+               bool userexists= db.Voters.Any(v =>
                 v.VoterID == voterid &&
                 v.IsApproved == true &&
                 v.IsSuspended == false); 
-                return exists;
+
+                
+                return userexists;
 
             }
             

@@ -1,4 +1,5 @@
 ﻿using International_Voting_Systems.CandObserverPattern;
+using International_Voting_Systems.Controllers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -49,7 +50,10 @@ namespace International_Voting_Systems
 
             };
 
-            subject.RegisterCandidate(newCandidate);
+            // subject.RegisterCandidate(newCandidate);
+            CandidateController controller = new CandidateController(subject);
+
+            string result = controller.RegisterCand(newCandidate);
 
 
             MessageBox.Show("New Candidate Added!");

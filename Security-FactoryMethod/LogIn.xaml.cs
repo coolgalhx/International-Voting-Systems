@@ -30,23 +30,44 @@ namespace International_Voting_Systems
 
         private async void btncheckcredentials_Click(object sender, RoutedEventArgs e)
         {
-            //string voterid = txtvoteridlogin.Text;
+            
 
             if (!int.TryParse(txtvoteridlogin.Text, out int voterid))
             {
                 MessageBox.Show("Please enter your VoterID");
                 return;
             }
-           
 
             IAuthenticator auth = new CredentialAuthenticator();
-            bool success= await auth.AuthenticateAsync(txtvoteridlogin.Text);
+            bool success = await auth.AuthenticateAsync(txtvoteridlogin.Text);
+
 
             if (success)
             {
                 return;
             }
-           
+            using (var db = new MainDatabaseContext())
+            {
+                var voter = db.Voters.FirstOrDefault(v => v.VoterID == voterid);
+
+                if (voter == null)
+                {
+                    MessageBox.Show("Voter not found");
+                }
+                else if (!voter.IsApproved)
+                {
+                    MessageBox.Show("Your account is waiting for approval");
+                }
+                else if (voter.IsSuspended)
+                {
+                    MessageBox.Show("Your account has been suspended");
+                }
+                else
+                {
+                    MessageBox.Show("Login failed");
+                }
+
+            }
         }
-    }
+    } 
 }
