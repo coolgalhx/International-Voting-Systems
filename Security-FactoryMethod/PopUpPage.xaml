@@ -5,9 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:International_Voting_Systems.Security"
         mc:Ignorable="d"
-        Title="PopUpPage" Height="270" Width="397">
-    <Grid Margin="0,0,0,-6">
-        <TextBox Name="txtinputcode" HorizontalAlignment="Center" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Center" Width="170" Height="65"/>
+        Title="PopUpPage" Height="270" Width="397"
+        Background="#2C3E50">
+
+    <Grid Margin="0,0,0,-6" Background="#FFA0E0DD">
+
+        <TextBox Name="txtinputcode"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center"
+                 Width="188"
+                 Height="67"
+                 FontSize="20"
+                 Background="#ECF0F1"
+                 Foreground="Black"
+                 BorderBrush="#3498DB"
+                 BorderThickness="2"
+                 TextWrapping="Wrap"
+                 Text=""/>
+
+        <Button Content="Generate Code"
+                Margin="128,26,141,207"
+                FontSize="14"
+                FontWeight="Bold"
+                Background="#3498DB"
+                Foreground="White"
+                BorderBrush="#3498DB"
+                Click="Button_Click"/>
 
     </Grid>
 </Window>
+

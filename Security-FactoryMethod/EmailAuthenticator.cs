@@ -48,16 +48,21 @@ namespace International_Voting_Systems.Security
 
 
 
-                    db.Database.EnsureCreated();
+                   // db.Database.EnsureCreated();
                     db.Codes.Add(voterCode);
-
+                    db.Database.EnsureCreated();
                     db.SaveChanges();
 
 
 
 
 
-                    return await SendEmailToAuthenticate(voterId, number);
+                    //return await SendEmailToAuthenticate(voterId, number);
+                    var voter = db.Voters.FirstOrDefault(v => v.VoterID == Convert.ToInt32(voterId));
+
+                    
+
+                    return await SendEmailToAuthenticate(voter.Email, number);
 
                 }
 
@@ -85,6 +90,9 @@ namespace International_Voting_Systems.Security
 
 
                         MessageBox.Show("Code Verified!");
+
+                        VoterRegisteration vr = new();
+                        vr.Show();
 
                         return true;
 

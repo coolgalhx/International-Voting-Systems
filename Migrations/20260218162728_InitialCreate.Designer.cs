@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace International_Voting_Systems.Migrations
 {
     [DbContext(typeof(MainDatabaseContext))]
-    [Migration("20260208181639_InitialCreate")]
+    [Migration("20260218162728_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -56,6 +56,31 @@ namespace International_Voting_Systems.Migrations
                     b.HasKey("CandidateID");
 
                     b.ToTable("Candidates");
+                });
+
+            modelBuilder.Entity("International_Voting_Systems.Code", b =>
+                {
+                    b.Property<int>("CodeID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("ExpiryTime")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("IsUsed")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("OTP")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("VoterID")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("CodeID");
+
+                    b.HasIndex("VoterID");
+
+                    b.ToTable("Codes");
                 });
 
             modelBuilder.Entity("International_Voting_Systems.Voter", b =>
@@ -103,6 +128,17 @@ namespace International_Voting_Systems.Migrations
                     b.HasKey("VoterID");
 
                     b.ToTable("Voters");
+                });
+
+            modelBuilder.Entity("International_Voting_Systems.Code", b =>
+                {
+                    b.HasOne("International_Voting_Systems.Voter", "Voter")
+                        .WithMany()
+                        .HasForeignKey("VoterID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Voter");
                 });
 #pragma warning restore 612, 618
         }

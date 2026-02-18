@@ -51,6 +51,33 @@ namespace International_Voting_Systems.Migrations
                 {
                     table.PrimaryKey("PK_Voters", x => x.VoterID);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "Codes",
+                columns: table => new
+                {
+                    CodeID = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    VoterID = table.Column<int>(type: "INTEGER", nullable: false),
+                    OTP = table.Column<int>(type: "INTEGER", nullable: false),
+                    ExpiryTime = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    IsUsed = table.Column<bool>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Codes", x => x.CodeID);
+                    table.ForeignKey(
+                        name: "FK_Codes_Voters_VoterID",
+                        column: x => x.VoterID,
+                        principalTable: "Voters",
+                        principalColumn: "VoterID",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Codes_VoterID",
+                table: "Codes",
+                column: "VoterID");
         }
 
         /// <inheritdoc />
@@ -58,6 +85,9 @@ namespace International_Voting_Systems.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Candidates");
+
+            migrationBuilder.DropTable(
+                name: "Codes");
 
             migrationBuilder.DropTable(
                 name: "Voters");

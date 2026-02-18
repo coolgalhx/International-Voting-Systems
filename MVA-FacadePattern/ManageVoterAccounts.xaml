@@ -10,7 +10,7 @@
 
         <Button Name="btnReject" Content="Reject" HorizontalAlignment="Left" Margin="180,293,0,0" VerticalAlignment="Top" Height="80" Width="194" Click="Btnreject_Click" Background="#E74C3C" Foreground="White" FontWeight="Bold" BorderBrush="#7A1F16" BorderThickness="3"/>
 
-        <Button Content="Clear Datagrid" Name="btnClearTable" HorizontalAlignment="Left" Margin="465,293,0,0" VerticalAlignment="Top" Height="80" Width="188" Click="BtnClearTable_Click_1" Background="#3498DB" Foreground="White" FontWeight="Bold" BorderBrush="#1F4E79" BorderThickness="3"/>
+        <Button Content="Clear Database Table" Name="btnClearTable" HorizontalAlignment="Left" Margin="465,293,0,0" VerticalAlignment="Top" Height="80" Width="188" Click="BtnClearTable_Click_1" Background="#3498DB" Foreground="White" FontWeight="Bold" BorderBrush="#1F4E79" BorderThickness="3"/>
 
     </Grid>
 </Window>

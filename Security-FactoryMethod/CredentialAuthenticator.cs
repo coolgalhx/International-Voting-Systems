@@ -25,7 +25,10 @@ namespace International_Voting_Systems.Security
 
                 {
 
-                    MessageBox.Show("Welcome");
+                    //MessageBox.Show("Welcome");
+
+                    PopUpPage pp=new(username);
+                    pp.Show();
 
                     return true;
 

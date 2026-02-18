@@ -31,7 +31,6 @@
                 <Setter Property="Cursor" Value="Hand"/>
             </Style>
 
-            <!-- Translate button -->
             <Style x:Key="TranslateBtn" TargetType="Button">
                 <Setter Property="Background" Value="#6C63FF"/>
                 <Setter Property="Foreground" Value="White"/>
@@ -71,24 +70,20 @@
         <Label Name="lbldob" Content="DOB" HorizontalAlignment="Left" Margin="226,280,0,0" VerticalAlignment="Top"/>
         <TextBox Name="txtdob" HorizontalAlignment="Left" Margin="226,305,0,0" VerticalAlignment="Top" Width="140" Text="10.1.1999"/>
 
-        <Button Name="btnregistervoter" Content="Register"
-                Style="{StaticResource RegisterBtn}"
-                HorizontalAlignment="Left" Margin="130,365,0,0"
-                VerticalAlignment="Top" Width="150" Height="45"
+        <Button Name="btnregistervoter" Content="Register" Style="{StaticResource RegisterBtn}" HorizontalAlignment="Left" Margin="130,365,0,0" VerticalAlignment="Top" Width="150" Height="45"
                 Click="btnregistervoter_Click"/>
 
-        <Button Name="btntranslate" Content="Translate"
-                Style="{StaticResource TranslateBtn}"
-                HorizontalAlignment="Left" Margin="705,41,0,0"
-                VerticalAlignment="Top" Width="75" Height="28"
-                Click="Translate_Click"/>
+        <Button Name="btntranslate" Content="Translate" Style="{StaticResource TranslateBtn}" HorizontalAlignment="Left" Margin="705,41,0,0" VerticalAlignment="Top" Width="75" Height="28" Click="Translate_Click"/>
 
-        <CheckBox Name="chklightmode" Content="LightMode"
-                  HorizontalAlignment="Right" Margin="0,15,20,0"
-                  VerticalAlignment="Top"
-                  Foreground="#4B6CB7"
-                  Checked="ThemeCheckBox_Checked"
-                  Unchecked="ThemeCheckBox_Unchecked"/>
+        <CheckBox Name="chklightmode" Content="LightMode" HorizontalAlignment="Right" Margin="0,15,20,0" VerticalAlignment="Top" Foreground="#4B6CB7" Checked="ThemeCheckBox_Checked" Unchecked="ThemeCheckBox_Unchecked"/>
+        <Image HorizontalAlignment="Left" Height="100" Margin="692,357,0,0" VerticalAlignment="Top" Width="100" Source="/Security-FactoryMethod/eu-logo-big.png">
+            <Image.OpacityMask>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Image.OpacityMask>
+        </Image>
 
     </Grid>
 </Window>

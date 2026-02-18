@@ -55,6 +55,31 @@ namespace International_Voting_Systems.Migrations
                     b.ToTable("Candidates");
                 });
 
+            modelBuilder.Entity("International_Voting_Systems.Code", b =>
+                {
+                    b.Property<int>("CodeID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("ExpiryTime")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("IsUsed")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("OTP")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("VoterID")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("CodeID");
+
+                    b.HasIndex("VoterID");
+
+                    b.ToTable("Codes");
+                });
+
             modelBuilder.Entity("International_Voting_Systems.Voter", b =>
                 {
                     b.Property<int>("VoterID")
@@ -100,6 +125,17 @@ namespace International_Voting_Systems.Migrations
                     b.HasKey("VoterID");
 
                     b.ToTable("Voters");
+                });
+
+            modelBuilder.Entity("International_Voting_Systems.Code", b =>
+                {
+                    b.HasOne("International_Voting_Systems.Voter", "Voter")
+                        .WithMany()
+                        .HasForeignKey("VoterID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Voter");
                 });
 #pragma warning restore 612, 618
         }

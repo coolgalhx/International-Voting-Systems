@@ -1,4 +1,5 @@
-﻿using System;
+﻿using International_Voting_Systems.Security;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,9 +28,25 @@ namespace International_Voting_Systems
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private async void btncheckcredentials_Click(object sender, RoutedEventArgs e)
         {
-            
+            //string voterid = txtvoteridlogin.Text;
+
+            if (!int.TryParse(txtvoteridlogin.Text, out int voterid))
+            {
+                MessageBox.Show("Please enter your VoterID");
+                return;
+            }
+           
+
+            IAuthenticator auth = new CredentialAuthenticator();
+            bool success= await auth.AuthenticateAsync(txtvoteridlogin.Text);
+
+            if (success)
+            {
+                return;
+            }
+           
         }
     }
 }

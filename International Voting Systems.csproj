@@ -10,6 +10,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Security-FactoryMethod\eu-logo-big.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="DarkNet" Version="2.3.0" />
     <PackageReference Include="GTranslate" Version="2.3.1" />
     <PackageReference Include="MailKit" Version="4.14.1" />
@@ -21,6 +25,10 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Security-FactoryMethod\eu-logo-big.png" />
   </ItemGroup>
 
 </Project>

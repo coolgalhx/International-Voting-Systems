@@ -19,9 +19,18 @@ namespace International_Voting_Systems.Security
     /// </summary>
     public partial class PopUpPage : Window
     {
-        public PopUpPage()
+
+        private int _voterid;
+        public PopUpPage(int voterid)
         {
             InitializeComponent();
+            _voterid = voterid;
+        }
+
+        private async void Button_Click(object sender, RoutedEventArgs e)
+        {
+            IAuthenticator auth = new EmailAuthenticator();
+            bool success = await auth.AuthenticateAsync(_voterid.ToString(), txtinputcode.Text);
         }
     }
 }
