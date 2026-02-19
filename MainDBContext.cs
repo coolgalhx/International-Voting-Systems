@@ -15,10 +15,11 @@ namespace International_Voting_Systems
             public DbSet<Candidate> Candidates { get; set; }
             
             public DbSet<Code> Codes { get; set; }
+            public DbSet<IDTable> IDs { get; set; }
 
 
 
-            protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
             {
                 base.OnConfiguring(optionsBuilder);
                 optionsBuilder.UseSqlite("Data Source=MainDB.db");

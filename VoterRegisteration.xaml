@@ -91,7 +91,7 @@
                 </LinearGradientBrush>
             </Image.OpacityMask>
         </Image>
-        <Button Content="" HorizontalAlignment="Left" Margin="10,4,0,0" VerticalAlignment="Top" Height="40" Width="42" Click="Button_Click">
+        <Button Content="" HorizontalAlignment="Left" Margin="10,4,0,0" VerticalAlignment="Top" Height="40" Width="42" Click="BtnTexttoSpeechn_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/sound-symbol-2.png"/>
             </Button.Background>

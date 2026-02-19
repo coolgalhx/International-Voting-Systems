@@ -139,7 +139,7 @@ namespace International_Voting_Systems
             LoadTheme("Themes/Dark.xaml");
         }
 
-        private  async void Button_Click(object sender, RoutedEventArgs e)
+        private  async void BtnTexttoSpeechn_Click(object sender, RoutedEventArgs e)
         {
 
             if (IsSpeaking)  
@@ -192,13 +192,13 @@ namespace International_Voting_Systems
             var labels = new Label[]
             {
                lblname, lblage, lblcity, lblcontactnumber,
-               lblemail, lblpostcode, lblgender, lblvoterid
+               lblemail, lblpostcode, lblgender, lblvoterid,lblcountry, lbldob
             };
 
             foreach (var lbl in labels)
             {
                 lbl.Foreground = Brushes.Black;
-                lbl.FontWeight = FontWeights.Normal;
+                lbl.FontWeight = FontWeights.Bold;
             }
         }
     }
