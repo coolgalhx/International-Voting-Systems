@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static System.Runtime.CompilerServices.RuntimeHelpers;
 
 namespace International_Voting_Systems.Security
 {
@@ -27,10 +28,12 @@ namespace International_Voting_Systems.Security
             _voterid = voterid;
         }
 
-        private async void Button_Click(object sender, RoutedEventArgs e)
+        private async void BtnGenerateOTP_Click(object sender, RoutedEventArgs e)
         {
             IAuthenticator auth = new EmailAuthenticator();
             bool success = await auth.AuthenticateAsync(_voterid.ToString(), txtinputcode.Text);
         }
+
+        
     }
 }

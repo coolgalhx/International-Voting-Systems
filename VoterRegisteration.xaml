@@ -7,7 +7,7 @@
         Background="{DynamicResource WindowBackground}"
         MouseWheel="Window_MouseWheel">
 
-    <Grid>
+    <Grid Background="#FF88DEEA">
 
         <Grid.LayoutTransform>
             <ScaleTransform x:Name="zoomTransform"
@@ -59,23 +59,20 @@
         <Label Name="lblvoterid" Content="Voter ID" HorizontalAlignment="Left" Margin="57,100,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <TextBox Name="txtvoterid" HorizontalAlignment="Left" Margin="57,125,0,0" VerticalAlignment="Top" Width="140" Text="12345"/>
 
-        <Label Name="lblage" Content="Age" HorizontalAlignment="Left" Margin="57,160,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <TextBox Name="txtage" HorizontalAlignment="Left" Margin="57,185,0,0" VerticalAlignment="Top" Width="140" Text="33"/>
+        <Label Name="lblcontactnumber" Content="Contact Number" HorizontalAlignment="Left" Margin="149,285,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBox Name="txtcontactnumber" HorizontalAlignment="Left" Margin="135,312,0,0" VerticalAlignment="Top" Width="140" Text="999"/>
 
-        <Label Name="lblcontactnumber" Content="Contact Number" HorizontalAlignment="Left" Margin="226,160,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <TextBox Name="txtcontactnumber" HorizontalAlignment="Left" Margin="226,185,0,0" VerticalAlignment="Top" Width="140" Text="999"/>
-
-        <Label Name="lblcity" Content="City" HorizontalAlignment="Left" Margin="57,220,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <TextBox Name="txtcity" HorizontalAlignment="Left" Margin="57,245,0,0" VerticalAlignment="Top" Width="140"/>
+        <Label Name="lblcity" Content="City" HorizontalAlignment="Left" Margin="57,160,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBox Name="txtcity" HorizontalAlignment="Left" Margin="57,185,0,0" VerticalAlignment="Top" Width="140"/>
 
         <Label Name="lblpostcode" Content="Postcode" HorizontalAlignment="Left" Margin="226,220,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <TextBox Name="txtpostcode" HorizontalAlignment="Left" Margin="226,245,0,0" VerticalAlignment="Top" Width="140"/>
 
-        <Label Name="lblcountry" Content="Country" HorizontalAlignment="Left" Margin="57,280,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <TextBox Name="txtcountry" HorizontalAlignment="Left" Margin="57,305,0,0" VerticalAlignment="Top" Width="140"/>
+        <Label Name="lblcountry" Content="Country" HorizontalAlignment="Left" Margin="58,217,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBox Name="txtcountry" HorizontalAlignment="Left" Margin="57,245,0,0" VerticalAlignment="Top" Width="140"/>
 
-        <Label Name="lbldob" Content="Date of Birth" HorizontalAlignment="Left" Margin="226,280,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <TextBox Name="txtdob" HorizontalAlignment="Left" Margin="226,305,0,0" VerticalAlignment="Top" Width="140" Text="10.1.1999"/>
+        <Label Name="lbldob" Content="Date of Birth" HorizontalAlignment="Left" Margin="226,160,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBox Name="txtdob" HorizontalAlignment="Left" Margin="226,185,0,0" VerticalAlignment="Top" Width="140" Text="10.1.1999"/>
 
         <Button Name="btnregistervoter" Content="Register" Style="{StaticResource RegisterBtn}" HorizontalAlignment="Left" Margin="130,365,0,0" VerticalAlignment="Top" Width="150" Height="45"
                 Click="btnregistervoter_Click"/>
@@ -91,7 +88,7 @@
                 </LinearGradientBrush>
             </Image.OpacityMask>
         </Image>
-        <Button Content="" HorizontalAlignment="Left" Margin="10,4,0,0" VerticalAlignment="Top" Height="40" Width="42" Click="BtnTexttoSpeechn_Click">
+        <Button Content="" HorizontalAlignment="Left" Margin="10,4,0,0" VerticalAlignment="Top" Height="26" Width="30" Click="BtnTexttoSpeechn_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/sound-symbol-2.png"/>
             </Button.Background>

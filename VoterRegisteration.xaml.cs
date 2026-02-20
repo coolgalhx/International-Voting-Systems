@@ -32,7 +32,7 @@ namespace International_Voting_Systems
     /// </summary>
     /// 
 
-   
+
     public partial class VoterRegisteration : Window
     {
         private Subject subject;
@@ -49,8 +49,8 @@ namespace International_Voting_Systems
 
             //_translator = new TranslatorAdapter(new GTranslateAdaptee());
 
-            
-            EmailService es=new EmailService();
+
+            EmailService es = new EmailService();
             subject.Attach(es);
 
 
@@ -77,10 +77,61 @@ namespace International_Voting_Systems
             // Apply theme safely here
             _themeContext.Request1(this);
         }
+        private bool ValidateVoterInput()
+        {
+            if (string.IsNullOrWhiteSpace(txtname.Text))
+            {
+                MessageBox.Show("Voter name cannot be empty.");
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(txtvoterid.Text))
+            {
+                MessageBox.Show("Please input a unique number for your ID.");
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(txtpostcode.Text))
+            {
+                MessageBox.Show("Postcode cannot be left empty.");
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(txtcountry.Text))
+            {
+                MessageBox.Show("Please enter your county of residence");
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(txtcity.Text))
+            {
+                MessageBox.Show("Please enter your city");
+                return false;
+            }          
+
+            if (!DateTime.TryParse(txtdob.Text, out DateTime dob))
+            {
+                MessageBox.Show("Invalid date of birth. Please use the format DD/MM/YYYY.");
+                return false;
+            }
+
+            if (dob > DateTime.Now)
+            {
+                MessageBox.Show("Date of Birth cannot be in the future");
+
+            }
+            int calculatedage= DateTime.Now.Year-dob.Year;
+            if(calculatedage < 18)
+            {
+                MessageBox.Show("You must be 18 or over to vote");
+            }
+
+
+
+            return true;
+        }
 
 
         private void btnregistervoter_Click(object sender, RoutedEventArgs e)
         {
+            if (!ValidateVoterInput())
+                return;
 
             var newVoter = new Voter()
             {
@@ -88,20 +139,20 @@ namespace International_Voting_Systems
                 VoterID = Convert.ToInt32(txtvoterid.Text),
                 Name = txtname.Text,
                 Email = txtemail.Text,
-                Age = Convert.ToInt32(txtage.Text),
+               // Age = Convert.ToInt32(txtage.Text),
                 Gender = txtgender.Text,
                 DOB = Convert.ToDateTime(txtdob.Text),
                 ContactNumber = Convert.ToDouble(txtcontactnumber.Text),
-                City=txtcity.Text,
-                Country=txtcountry.Text,
-                PostCode=txtpostcode.Text,
+                City = txtcity.Text,
+                Country = txtcountry.Text,
+                PostCode = txtpostcode.Text,
 
             };
 
             subject.RegisterVoter(newVoter);
- 
-            
-        }
+
+
+        } 
 
         private async void Translate_Click(object sender, RoutedEventArgs e)
         {
@@ -109,7 +160,7 @@ namespace International_Voting_Systems
 
             var adaptee = new VoterDatainEnAdaptee();
             var adapter = new VoterDataTranslatedAdapter(adaptee);
-            await adapter.TranslateToFrench(lblname, lblage,lblcity,lblcontactnumber,lblemail,lblpostcode,lblgender
+            await adapter.TranslateToFrench(lblname,lblcity,lblcontactnumber,lblemail,lblpostcode,lblgender
                ,lblvoterid,lblcountry,lbldob);
         }
         private void LoadTheme(string themePath)
@@ -158,7 +209,6 @@ namespace International_Voting_Systems
                  lblemail,
                  lblvoterid,
                  lblgender,
-                 lblage,
                  lblcontactnumber,
                  lblcity,
                  lblpostcode,
@@ -191,7 +241,7 @@ namespace International_Voting_Systems
         {
             var labels = new Label[]
             {
-               lblname, lblage, lblcity, lblcontactnumber,
+               lblname, lblcity, lblcontactnumber,
                lblemail, lblpostcode, lblgender, lblvoterid,lblcountry, lbldob
             };
 

@@ -18,7 +18,7 @@ namespace International_Voting_Systems
     {
         // The DataRetension's constructor should always be private to prevent
         // direct construction calls with the `new` operator.
-        public DataRetension() { }
+        private DataRetension() { }
 
         // The DataRetension's instance is stored in a static field. There there are
         // multiple ways to initialize this field, all of them have various pros

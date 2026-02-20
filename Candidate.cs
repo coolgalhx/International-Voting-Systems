@@ -18,5 +18,48 @@ namespace International_Voting_Systems
 
         public string CandidateConstituency { get; set; }
 
+
+        //public string ValidateCandidateInput()
+        //{
+        //    if (string.IsNullOrWhiteSpace(CandidateFullName))
+        //    {
+        //        return "Candidate name cannot be empty.";
+        //    }
+
+        //    if (CandidateID <= 0)
+        //    {
+        //        return "Please input a valid unique number for your ID.";
+        //    }
+
+        //    if (string.IsNullOrWhiteSpace(CandidateAddress))
+        //    {
+        //        return "Address cannot be left empty.";
+        //    }
+
+        //    if (string.IsNullOrWhiteSpace(CandidateConstituency))
+        //    {
+        //        return "Please enter a Constituency.";
+        //    }
+
+        //    // DOB validation
+        //    if (CandidateDOB > DateOnly.FromDateTime(DateTime.Now))
+        //    {
+        //        return "Date of Birth cannot be in the future.";
+        //    }
+
+        //    int calculatedAge = DateTime.Now.Year - CandidateDOB.Year;
+
+        //    if (calculatedAge < 18)
+        //    {
+        //        return "Candidate must be 18 or over.";
+        //    }
+
+        //    if (string.IsNullOrWhiteSpace(CandidateNationalInsuranceNumber))
+        //    {
+        //        return "Please enter your National Insurance number.";
+        //    }
+
+        //    return "OK"; 
+        //}
     }
 }

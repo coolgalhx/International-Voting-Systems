@@ -17,11 +17,7 @@ namespace International_Voting_Systems.Controllers
         }
         public string RegisterCand(Candidate candidate)
         {
-            if (string.IsNullOrWhiteSpace(candidate.CandidateFullName))
-                return "Enter candidate name";
-
-            if (string.IsNullOrWhiteSpace(candidate.CandidateEmail))
-                return "Enter email";
+            
 
             subject.RegisterCandidate(candidate); 
 

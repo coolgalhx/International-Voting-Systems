@@ -47,7 +47,7 @@
         <Label Name="lblCandidateCity" Content="City" HorizontalAlignment="Left" Margin="57,220,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <TextBox Name="txtCandidateCity" HorizontalAlignment="Left" Margin="57,245,0,0" VerticalAlignment="Top" Width="140" />
 
-        <Label Name="lblCandidateNI" Content="NI Number" HorizontalAlignment="Left" Margin="226,218,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label Name="lblCandidateNI" Content="NI /Social Security" HorizontalAlignment="Left" Margin="226,218,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <TextBox Name="txtCandidateNI" HorizontalAlignment="Left" Margin="226,245,0,0" VerticalAlignment="Top" Width="140" />
 
 
