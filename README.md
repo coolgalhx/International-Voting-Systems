@@ -11,3 +11,5 @@ International Voting System
  https://stackoverflow.com/questions/76153404/i-get-an-error-when-using-mailkit-to-send-a-gmail-email
  https://github.com/jstedfast/MailKit?tab=readme-ov-file
 
+ Security-FactoryMethod/LogIn
+ MVA-FacadePattern/ManageVoterAccounts

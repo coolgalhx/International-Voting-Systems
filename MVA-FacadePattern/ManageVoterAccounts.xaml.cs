@@ -22,7 +22,8 @@ namespace International_Voting_Systems
     public partial class ManageVoterAccounts : Window
     {
         public ObservableCollection<Voter> VoterAccounts { get; set; }
-
+        private readonly MVAFacade _mvafacade = new MVAFacade()
+;
         public ManageVoterAccounts()
         {
             InitializeComponent();
@@ -32,8 +33,7 @@ namespace International_Voting_Systems
         {
             
 
-            var MVAFacade = new MVAFacade();
-            var voters = MVAFacade.ListAllVoters();
+            var voters = _mvafacade.ListAllVoters();
             VoterAccounts = new ObservableCollection<Voter>(voters);
             datagridvoters.ItemsSource = VoterAccounts;
 
@@ -43,8 +43,8 @@ namespace International_Voting_Systems
         {
             if (datagridvoters.SelectedItem is Voter selectedvoteraccount)
             {
-                var MVAFacade = new MVAFacade();
-                MVAFacade.RejectVoter(selectedvoteraccount.VoterID);
+              
+                  _mvafacade.RejectVoter(selectedvoteraccount.VoterID);
                 VoterAccounts.Remove(selectedvoteraccount);
             }
 
@@ -52,17 +52,30 @@ namespace International_Voting_Systems
 
         private void BtnClearTable_Click_1(object sender, RoutedEventArgs e)
         {
-            DataRetension dr =  DataRetension.GetInstance();
-            dr.DeleteVotersOlderthan6Months();
-            using var db = new MainDatabaseContext();
+            
 
-            VoterAccounts = new ObservableCollection<Voter>(db.Voters.ToList());
-            datagridvoters.ItemsSource = VoterAccounts;
-
-
-
-
+            _mvafacade.ClearOldData(0);
+            LoadAllVoters();
+  
         }
+        private void datagridvoters_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
+        {
+            if(e.Row.Item is Voter selectedvoter)
+            {
+                string columnName= e.Column.SortMemberPath;
+
+                if(columnName== "IsApproved")
+                {
+                    _mvafacade.ApproveVoter(selectedvoter.VoterID);
+                }
+                if (columnName == "IsSuspended")
+                {
+                    _mvafacade.SuspendVoter(selectedvoter.VoterID);
+                }
+            }
+        }
+
+        
     }
     
     

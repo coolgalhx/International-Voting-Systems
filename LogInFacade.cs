@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 
 namespace International_Voting_Systems
@@ -18,13 +19,33 @@ namespace International_Voting_Systems
 
             using (var db = new MainDatabaseContext())
             {
-               bool userexists= db.Voters.Any(v =>
-                v.VoterID == voterid &&
-                v.IsApproved == true &&
-                v.IsSuspended == false); 
+               //bool userexists= db.Voters.Any(v =>
+               // v.VoterID == voterid &&
+               // v.IsApproved == true &&
+               // v.IsSuspended == false);
 
                 
-                return userexists;
+                    var voter = db.Voters.FirstOrDefault(v => v.VoterID == voterid);
+
+                    if (voter == null)
+                    {
+                        MessageBox.Show("Voter not found");
+                    }
+                    else if (!voter.IsApproved)
+                    {
+                        MessageBox.Show("Your account is waiting for approval");
+                    }
+                    else if (voter.IsSuspended)
+                    {
+                        MessageBox.Show("Your account has been suspended");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Login Successful");
+                    }
+                   
+                    return true;
+
 
             }
             

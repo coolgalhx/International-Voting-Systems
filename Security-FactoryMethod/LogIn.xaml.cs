@@ -38,36 +38,18 @@ namespace International_Voting_Systems
                 return;
             }
 
-            IAuthenticator auth = new CredentialAuthenticator();
-            bool success = await auth.AuthenticateAsync(txtvoteridlogin.Text);
+            LogInFacade loginFacade = new LogInFacade();
+            bool isAuthorized = loginFacade.LogIn(voterid);
 
-
-            if (success)
+            if (isAuthorized)
             {
-                return;
+                IAuthenticator auth = new CredentialAuthenticator();
+                bool success = await auth.AuthenticateAsync(txtvoteridlogin.Text);
             }
-            using (var db = new MainDatabaseContext())
-            {
-                var voter = db.Voters.FirstOrDefault(v => v.VoterID == voterid);
+           
 
-                if (voter == null)
-                {
-                    MessageBox.Show("Voter not found");
-                }
-                else if (!voter.IsApproved)
-                {
-                    MessageBox.Show("Your account is waiting for approval");
-                }
-                else if (voter.IsSuspended)
-                {
-                    MessageBox.Show("Your account has been suspended");
-                }
-                else
-                {
-                    MessageBox.Show("Login failed");
-                }
 
-            }
+            
         }
     } 
 }

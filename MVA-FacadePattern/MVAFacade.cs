@@ -61,6 +61,16 @@ namespace International_Voting_Systems
 
             }
         }
+       
+        public void ClearOldData(int voterid)
+        {
+            DataRetension dr = DataRetension.GetInstance();
+            dr.DeleteVotersOlderthan6Months();
+            //using var db = new MainDatabaseContext();
+
+            
+
+        }
     }
 
     
