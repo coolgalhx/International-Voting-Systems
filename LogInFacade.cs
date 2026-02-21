@@ -30,15 +30,17 @@ namespace International_Voting_Systems
                     if (voter == null)
                     {
                         MessageBox.Show("Voter not found");
+                         return false;
                     }
-                    else if (!voter.IsApproved)
+                    else if (!voter.IsApproved && voter.IsSuspended)
                     {
-                        MessageBox.Show("Your account is waiting for approval");
+                        MessageBox.Show("Your account has been suspended by admin");
+                         return false;
                     }
-                    else if (voter.IsSuspended)
-                    {
-                        MessageBox.Show("Your account has been suspended");
-                    }
+                    //else if (voter.IsApproved && )
+                    //{
+                    //    MessageBox.Show("Your account has been suspended");
+                    //}
                     else
                     {
                         MessageBox.Show("Login Successful");

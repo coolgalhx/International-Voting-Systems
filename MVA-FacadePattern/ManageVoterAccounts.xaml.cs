@@ -60,19 +60,40 @@ namespace International_Voting_Systems
         }
         private void datagridvoters_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
         {
-            if(e.Row.Item is Voter selectedvoter)
-            {
-                string columnName= e.Column.SortMemberPath;
 
-                if(columnName== "IsApproved")
+            // datagridvoters.CommitEdit(DataGridEditingUnit.Row, true);
+
+            //if (e.Row.Item is Voter selectedvoter)
+            //{
+            //    _mvafacade.UpdateVoter(selectedvoter);
+            //    //string columnName= e.Column.SortMemberPath;
+
+            //    //if (columnName == "IsApproved" && selectedvoter.IsApproved)
+            //    //{
+            //    //    _mvafacade.UpdateVoter(selectedvoter);
+            //    //}
+            //    //if (columnName == "IsSuspended" && selectedvoter.IsSuspended)
+            //    //{
+            //    //    _mvafacade.SuspendVoter(selectedvoter.VoterID);
+            //    //}
+
+
+
+
+            //}
+
+            if (e.Row.Item is Voter selectedvoter)
+            {
+                // Wait until checkbox/text value is fully updated
+                Dispatcher.BeginInvoke(new Action(() =>
                 {
-                    _mvafacade.ApproveVoter(selectedvoter.VoterID);
-                }
-                if (columnName == "IsSuspended")
-                {
-                    _mvafacade.SuspendVoter(selectedvoter.VoterID);
-                }
+                    _mvafacade.UpdateVoter(selectedvoter);
+                }), System.Windows.Threading.DispatcherPriority.Background);
             }
+
+
+
+
         }
 
         

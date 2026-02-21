@@ -61,7 +61,22 @@ namespace International_Voting_Systems
 
             }
         }
-       
+        public void UpdateVoter(Voter updated)
+        {
+            using (var db = new MainDatabaseContext())
+            {
+                var voter = db.Voters.Find(updated.VoterID);
+                if (voter != null)
+                {
+
+                    voter.IsApproved = updated.IsApproved;
+                    voter.IsSuspended = updated.IsSuspended;
+
+                    db.SaveChanges();
+                }
+            }
+        }
+
         public void ClearOldData(int voterid)
         {
             DataRetension dr = DataRetension.GetInstance();

@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace International_Voting_Systems.Migrations
 {
     [DbContext(typeof(MainDatabaseContext))]
-    [Migration("20260219134739_CreateIDTable")]
-    partial class CreateIDTable
+    [Migration("20260221121030_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -113,9 +113,6 @@ namespace International_Voting_Systems.Migrations
                 {
                     b.Property<int>("VoterID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("Age")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("City")

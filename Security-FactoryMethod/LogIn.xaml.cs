@@ -41,11 +41,16 @@ namespace International_Voting_Systems
             LogInFacade loginFacade = new LogInFacade();
             bool isAuthorized = loginFacade.LogIn(voterid);
 
-            if (isAuthorized)
+            if (!isAuthorized)
+            {
+               
+            }
+            else
             {
                 IAuthenticator auth = new CredentialAuthenticator();
                 bool success = await auth.AuthenticateAsync(txtvoteridlogin.Text);
             }
+            
            
 
 
