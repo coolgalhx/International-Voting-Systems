@@ -1,5 +1,7 @@
 International Voting System
 
+This project is inline with the university guidlines regarding AI, No AI was used in development
+
  Observer Pattern: https://refactoring.guru/design-patterns/observer
  Factory Method: https://refactoring.guru/design-patterns/factory-method
  Singletom: https://refactoring.guru/design-patterns/singleton

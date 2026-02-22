@@ -37,14 +37,15 @@ namespace International_Voting_Systems
                         MessageBox.Show("Your account has been suspended by admin");
                          return false;
                     }
-                    //else if (voter.IsApproved && )
-                    //{
-                    //    MessageBox.Show("Your account has been suspended");
-                    //}
-                    else
-                    {
+                     else if (!voter.IsApproved && !voter.IsSuspended)
+                     {
+                    MessageBox.Show("Your account is waiting to be approved");
+                          return false;
+                     }
+                     else
+                     {
                         MessageBox.Show("Login Successful");
-                    }
+                     }
                    
                     return true;
 

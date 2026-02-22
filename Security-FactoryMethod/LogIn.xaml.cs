@@ -43,7 +43,7 @@ namespace International_Voting_Systems
 
             if (!isAuthorized)
             {
-               
+                return;
             }
             else
             {

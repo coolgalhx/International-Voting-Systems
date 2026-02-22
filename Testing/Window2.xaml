@@ -8,6 +8,7 @@
         Title="Window2" Height="450" Width="800"
         Loaded="Window_Loaded">
     <Grid>
-        
+        <Button Content="Button" HorizontalAlignment="Left" Margin="386,67,0,0" VerticalAlignment="Top" Height="54" Width="114" Click="Button_Click"/>
+
     </Grid>
 </Window>
