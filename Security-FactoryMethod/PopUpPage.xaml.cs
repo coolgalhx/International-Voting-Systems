@@ -30,7 +30,11 @@ namespace International_Voting_Systems.Security
 
         private async void BtnGenerateOTP_Click(object sender, RoutedEventArgs e)
         {
-            IAuthenticator auth = new EmailAuthenticator();
+            //IAuthenticator auth = new EmailAuthenticator();
+           // bool success = await auth.AuthenticateAsync(_voterid.ToString(), txtinputcode.Text);
+           var factory=new EmailAuthenticationFactory();
+            IAuthenticator auth = factory.FactoryMethod();
+
             bool success = await auth.AuthenticateAsync(_voterid.ToString(), txtinputcode.Text);
         }
 
