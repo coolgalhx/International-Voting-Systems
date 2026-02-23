@@ -220,9 +220,10 @@ namespace International_Voting_Systems
             {
                 if (!IsSpeaking) break;
 
-               
-                lbl.Foreground = Brushes.BlueViolet;
+
+                 lbl.Foreground = Brushes.BlueViolet;
                 lbl.FontWeight = FontWeights.Bold;
+                
 
                 if (lbl.Content is string text)
                 {
@@ -231,7 +232,9 @@ namespace International_Voting_Systems
                 }
 
                 lbl.Foreground = Brushes.Black;
+                //lbl.ClearValue(Label.ForegroundProperty);
                 lbl.FontWeight = FontWeights.Normal;
+                
             }
             IsSpeaking = false;
         }
@@ -248,7 +251,8 @@ namespace International_Voting_Systems
             foreach (var lbl in labels)
             {
                 lbl.Foreground = Brushes.Black;
-                lbl.FontWeight = FontWeights.Bold;
+               // lbl.ClearValue(Label.ForegroundProperty);
+                lbl.FontWeight = FontWeights.Normal;
             }
         }
     }

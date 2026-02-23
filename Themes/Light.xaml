@@ -17,5 +17,10 @@
     <Style TargetType="Label">
         <Setter Property="Foreground" Value="{DynamicResource ControlForeground}"/>
     </Style>
-    
+    <SolidColorBrush x:Key="FormBackground" Color="#FF88DEEA"/>
+    <SolidColorBrush x:Key="AccentBlue" Color="#4B6CB7"/>
+    <SolidColorBrush x:Key="RegisterGreen" Color="#28A745"/>
+    <SolidColorBrush x:Key="TranslatePurple" Color="#6C63FF"/>
+    <SolidColorBrush x:Key="WhiteBrush" Color="White"/>
+
 </ResourceDictionary>

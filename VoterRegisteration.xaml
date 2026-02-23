@@ -7,7 +7,8 @@
         Background="{DynamicResource WindowBackground}"
         MouseWheel="Window_MouseWheel">
 
-    <Grid Background="#FF88DEEA">
+    <!-- SAME BACKGROUND COLOUR BUT NOT HARDCODED -->
+    <Grid Background="{DynamicResource FormBackground}">
 
         <Grid.LayoutTransform>
             <ScaleTransform x:Name="zoomTransform"
@@ -17,50 +18,62 @@
 
         <Grid.Resources>
 
+            <!-- SAME LABEL STYLE -->
             <Style TargetType="Label">
                 <Setter Property="FontSize" Value="13"/>
-                <Setter Property="Foreground" Value="#4B6CB7"/>
+                <Setter Property="Foreground" 
+                        Value="{DynamicResource AccentBlue}"/>
             </Style>
 
+            <!-- SAME TEXTBOX STYLE -->
             <Style TargetType="TextBox">
                 <Setter Property="Height" Value="30"/>
                 <Setter Property="Padding" Value="5"/>
-                <Setter Property="BorderBrush" Value="#4B6CB7"/>
+                <Setter Property="BorderBrush" 
+                        Value="{DynamicResource AccentBlue}"/>
                 <Setter Property="BorderThickness" Value="1.5"/>
-                <Setter Property="Background" Value="White"/>
+                <Setter Property="Background" 
+                        Value="{DynamicResource TextBoxFill}"/>
             </Style>
 
+            <!-- SAME REGISTER BUTTON -->
             <Style x:Key="RegisterBtn" TargetType="Button">
-                <Setter Property="Background" Value="#28A745"/>
-                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="Background" 
+                        Value="{DynamicResource RegisterGreen}"/>
+                <Setter Property="Foreground" 
+                        Value="{DynamicResource ButtonText}"/>
                 <Setter Property="FontWeight" Value="Bold"/>
                 <Setter Property="BorderThickness" Value="0"/>
                 <Setter Property="Cursor" Value="Hand"/>
             </Style>
 
+            <!-- SAME TRANSLATE BUTTON -->
             <Style x:Key="TranslateBtn" TargetType="Button">
-                <Setter Property="Background" Value="#6C63FF"/>
-                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="Background" 
+                        Value="{DynamicResource TranslatePurple}"/>
+                <Setter Property="Foreground" 
+                        Value="{DynamicResource ButtonText}"/>
                 <Setter Property="BorderThickness" Value="0"/>
                 <Setter Property="Cursor" Value="Hand"/>
             </Style>
 
         </Grid.Resources>
 
+        <!-- EVERYTHING BELOW UNCHANGED -->
         <Label Name="lblname" Content="Enter Your Name" HorizontalAlignment="Left" Margin="57,30,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <TextBox Name="txtname" HorizontalAlignment="Left" Margin="57,62,0,0" VerticalAlignment="Top" Width="140"/>
 
         <Label Name="lblemail" Content="Email" HorizontalAlignment="Left" Margin="226,28,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <TextBox Name="txtemail" HorizontalAlignment="Left" Margin="226,62,0,0" VerticalAlignment="Top" Width="140" Text="Hibaq1040@gmail.com"/>
+        <TextBox Name="txtemail" HorizontalAlignment="Left" Margin="226,62,0,0" VerticalAlignment="Top" Width="140"/>
 
         <Label Name="lblgender" Content="Gender" HorizontalAlignment="Left" Margin="226,95,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <TextBox Name="txtgender" HorizontalAlignment="Left" Margin="226,125,0,0" VerticalAlignment="Top" Width="140"/>
 
         <Label Name="lblvoterid" Content="Voter ID" HorizontalAlignment="Left" Margin="57,100,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <TextBox Name="txtvoterid" HorizontalAlignment="Left" Margin="57,125,0,0" VerticalAlignment="Top" Width="140" Text="12345"/>
+        <TextBox Name="txtvoterid" HorizontalAlignment="Left" Margin="57,125,0,0" VerticalAlignment="Top" Width="140"/>
 
         <Label Name="lblcontactnumber" Content="Contact Number" HorizontalAlignment="Left" Margin="149,285,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <TextBox Name="txtcontactnumber" HorizontalAlignment="Left" Margin="135,312,0,0" VerticalAlignment="Top" Width="140" Text="999"/>
+        <TextBox Name="txtcontactnumber" HorizontalAlignment="Left" Margin="135,312,0,0" VerticalAlignment="Top" Width="140"/>
 
         <Label Name="lblcity" Content="City" HorizontalAlignment="Left" Margin="57,160,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <TextBox Name="txtcity" HorizontalAlignment="Left" Margin="57,185,0,0" VerticalAlignment="Top" Width="140"/>
@@ -72,28 +85,20 @@
         <TextBox Name="txtcountry" HorizontalAlignment="Left" Margin="57,245,0,0" VerticalAlignment="Top" Width="140"/>
 
         <Label Name="lbldob" Content="Date of Birth" HorizontalAlignment="Left" Margin="226,160,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <TextBox Name="txtdob" HorizontalAlignment="Left" Margin="226,185,0,0" VerticalAlignment="Top" Width="140" Text="10.1.1999"/>
+        <TextBox Name="txtdob" HorizontalAlignment="Left" Margin="226,185,0,0" VerticalAlignment="Top" Width="140"/>
 
-        <Button Name="btnregistervoter" Content="Register" Style="{StaticResource RegisterBtn}" HorizontalAlignment="Left" Margin="130,365,0,0" VerticalAlignment="Top" Width="150" Height="45"
-                Click="btnregistervoter_Click"/>
+        <Button Name="btnregistervoter" Content="Register" Style="{StaticResource RegisterBtn}" HorizontalAlignment="Left" Margin="130,365,0,0" VerticalAlignment="Top" Width="150" Height="45" Click="btnregistervoter_Click"/>
 
         <Button Name="btntranslate" Content="Translate" Style="{StaticResource TranslateBtn}" HorizontalAlignment="Left" Margin="705,41,0,0" VerticalAlignment="Top" Width="75" Height="28" Click="Translate_Click"/>
 
-        <CheckBox Name="chklightmode" Content="LightMode" HorizontalAlignment="Right" Margin="0,15,20,0" VerticalAlignment="Top" Foreground="#4B6CB7" Checked="ThemeCheckBox_Checked" Unchecked="ThemeCheckBox_Unchecked"/>
-        <Image HorizontalAlignment="Left" Height="61" Margin="689,357,0,0" VerticalAlignment="Top" Width="100" Source="/Security-FactoryMethod/eu-logo-big.png">
-            <Image.OpacityMask>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black"/>
-                    <GradientStop Color="White" Offset="1"/>
-                </LinearGradientBrush>
-            </Image.OpacityMask>
-        </Image>
-        <Button Content="" HorizontalAlignment="Left" Margin="10,4,0,0" VerticalAlignment="Top" Height="26" Width="30" Click="BtnTexttoSpeechn_Click">
+        <CheckBox Name="chklightmode" Content="LightMode" HorizontalAlignment="Right" Margin="0,15,20,0" VerticalAlignment="Top" Foreground="{DynamicResource AccentBlue}" Checked="ThemeCheckBox_Checked" Unchecked="ThemeCheckBox_Unchecked"/>
+
+        <Button HorizontalAlignment="Left" Margin="10,4,0,0" VerticalAlignment="Top" Height="26" Width="30" Click="BtnTexttoSpeechn_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/sound-symbol-2.png"/>
             </Button.Background>
         </Button>
+        <Image HorizontalAlignment="Left" Height="100" Margin="680,354,0,0" VerticalAlignment="Top" Width="100" Source="/Security-FactoryMethod/eu-logo-big.png"/>
 
     </Grid>
 </Window>
-
