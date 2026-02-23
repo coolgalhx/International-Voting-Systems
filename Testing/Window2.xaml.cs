@@ -31,7 +31,7 @@ namespace International_Voting_Systems.Testing
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            ////Unit Test 1: Approve, Suspend and Reject voter, only need to change method line 59 and 66
+            ////Manual Test 1: Approve, Suspend and Reject voter, only need to change method line 59 and 66
 
             ////ARRANGE
             //var facade = new MVAFacade();

@@ -38,7 +38,7 @@ namespace International_Voting_Systems
              subject.Attach(testObserver);
 
 
-            // //Unit TEST 1: attach works
+            // /Manual TEST 1: attach works
 
             //// ACT
             // subject.Notify();
@@ -57,7 +57,7 @@ namespace International_Voting_Systems
 
 
 
-            //Unit test 2: testing if the observer is notified
+            //Manual test 2: testing if the observer is notified
 
             //testObserver.Notified = false;
             //var voter = new Voter

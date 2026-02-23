@@ -9,7 +9,7 @@ using System.Windows;
 
 namespace International_Voting_Systems.Controllers
 {
-    class CandidateController
+    public class CandidateController
     {
         private Subject subject;
 

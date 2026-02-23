@@ -5,6 +5,8 @@ VisualStudioVersion = 17.9.34902.65
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "International Voting Systems", "International Voting Systems.csproj", "{2C00B731-078C-4057-9E04-841EBCDF4DA6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject4", "..\TestProject4\TestProject4.csproj", "{485F0B3D-04CC-4C4B-BED8-F0890EA75ABF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{2C00B731-078C-4057-9E04-841EBCDF4DA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2C00B731-078C-4057-9E04-841EBCDF4DA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2C00B731-078C-4057-9E04-841EBCDF4DA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{485F0B3D-04CC-4C4B-BED8-F0890EA75ABF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{485F0B3D-04CC-4C4B-BED8-F0890EA75ABF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{485F0B3D-04CC-4C4B-BED8-F0890EA75ABF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{485F0B3D-04CC-4C4B-BED8-F0890EA75ABF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
