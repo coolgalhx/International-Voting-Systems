@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace International_Voting_Systems.UsabilityStatePattern
 {
-    class DarkToLight : ThemeState
+    public class DarkToLight : ThemeState
     {
 
         public override void ApplyTheme(System.Windows.Window window)

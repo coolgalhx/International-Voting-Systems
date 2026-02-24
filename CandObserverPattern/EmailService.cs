@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Configuration;
 
 namespace International_Voting_Systems.CandObserverPattern
 {
@@ -24,7 +25,7 @@ namespace International_Voting_Systems.CandObserverPattern
             try
             {
                 var sender = "hanatheapprentice@gmail.com";
-                var apppass = "owrknppmatzfhfhk";
+                var apppass = ConfigurationManager.AppSettings["EmailPassword"]; ;
 
                 var message = new MimeMessage();
                 message.From.Add(new MailboxAddress("International Voting System", candidateEmail));

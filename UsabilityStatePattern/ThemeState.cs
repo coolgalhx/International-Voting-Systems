@@ -11,7 +11,7 @@ namespace International_Voting_Systems.UsabilityStatePattern
     // associated with the State. This backreference can be used by States to 
     // transition the Context to another State. 
 
-    abstract class ThemeState
+    public abstract class ThemeState
     {
 
         protected ThemeContext _context;

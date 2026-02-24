@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace International_Voting_Systems.UsabilityStatePattern
 {
-    class ThemeContext
+    public class ThemeContext
     {
         // A reference to the current state of the Context. 
 

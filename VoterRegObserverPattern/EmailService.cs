@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Configuration;
+
 
 namespace International_Voting_Systems.VoterRegObserver
 {
@@ -29,7 +31,7 @@ namespace International_Voting_Systems.VoterRegObserver
             try
             {
                 var sender = "Hanatheapprentice@gmail.com";
-                var apppass = "owrknppmatzfhfhk";
+                var apppass = ConfigurationManager.AppSettings["EmailPassword"]; ;
 
 
                 var message = new MimeMessage();
