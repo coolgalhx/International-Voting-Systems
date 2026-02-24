@@ -7,7 +7,6 @@
         Background="{DynamicResource WindowBackground}"
         MouseWheel="Window_MouseWheel">
 
-    <!-- SAME BACKGROUND COLOUR BUT NOT HARDCODED -->
     <Grid Background="{DynamicResource FormBackground}">
 
         <Grid.LayoutTransform>
@@ -18,14 +17,12 @@
 
         <Grid.Resources>
 
-            <!-- SAME LABEL STYLE -->
             <Style TargetType="Label">
                 <Setter Property="FontSize" Value="13"/>
                 <Setter Property="Foreground" 
                         Value="{DynamicResource AccentBlue}"/>
             </Style>
 
-            <!-- SAME TEXTBOX STYLE -->
             <Style TargetType="TextBox">
                 <Setter Property="Height" Value="30"/>
                 <Setter Property="Padding" Value="5"/>
@@ -36,7 +33,6 @@
                         Value="{DynamicResource TextBoxFill}"/>
             </Style>
 
-            <!-- SAME REGISTER BUTTON -->
             <Style x:Key="RegisterBtn" TargetType="Button">
                 <Setter Property="Background" 
                         Value="{DynamicResource RegisterGreen}"/>
@@ -47,7 +43,6 @@
                 <Setter Property="Cursor" Value="Hand"/>
             </Style>
 
-            <!-- SAME TRANSLATE BUTTON -->
             <Style x:Key="TranslateBtn" TargetType="Button">
                 <Setter Property="Background" 
                         Value="{DynamicResource TranslatePurple}"/>
@@ -59,7 +54,6 @@
 
         </Grid.Resources>
 
-        <!-- EVERYTHING BELOW UNCHANGED -->
         <Label Name="lblname" Content="Enter Your Name" HorizontalAlignment="Left" Margin="57,30,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <TextBox Name="txtname" HorizontalAlignment="Left" Margin="57,62,0,0" VerticalAlignment="Top" Width="140"/>
 
