@@ -25,10 +25,10 @@ namespace International_Voting_Systems
 
         public string Country { get; set; }
 
-        public bool IsApproved { get; private set; } = true;
-        public bool IsSuspended { get; private set; } = false;
+        public bool IsApproved { get;  set; } = true;
+        public bool IsSuspended { get;  set; } = false;
 
-        public DateTime CreatedDate { get; private set; } = DateTime.Now;
+        public DateTime CreatedDate { get;  set; } = DateTime.Now;
 
 
     }

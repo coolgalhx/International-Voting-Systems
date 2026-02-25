@@ -17,7 +17,7 @@ namespace International_Voting_Systems
         public string CandidateAddress { get; set; }
         public DateOnly CandidateDOB { get; set; }
         public string CandidateCity { get; set; }
-        public string CandidateNationalInsuranceNumber { get; private set; }
+        public string CandidateNationalInsuranceNumber { get;  set; }
 
         public string CandidateConstituency { get; set; }
 
