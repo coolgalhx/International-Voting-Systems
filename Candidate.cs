@@ -9,7 +9,7 @@ namespace International_Voting_Systems
 {
     public class Candidate
     {
-        public int CandidateID { get; set; }
+        public int CandidateID { get; private set; }
 
         [Required(ErrorMessage = "Full Name is required")]
         public string CandidateFullName { get; set; }
@@ -17,7 +17,7 @@ namespace International_Voting_Systems
         public string CandidateAddress { get; set; }
         public DateOnly CandidateDOB { get; set; }
         public string CandidateCity { get; set; }
-        public string CandidateNationalInsuranceNumber { get; set; }
+        public string CandidateNationalInsuranceNumber { get; private set; }
 
         public string CandidateConstituency { get; set; }
 
