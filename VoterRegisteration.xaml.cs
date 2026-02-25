@@ -22,6 +22,7 @@ using MimeKit;
 using International_Voting_Systems.VoterAdapterPattern;
 using International_Voting_Systems.UsabilityStatePattern;
 using System.Speech.Synthesis;
+using Microsoft.EntityFrameworkCore;
 
 
 
@@ -120,6 +121,18 @@ namespace International_Voting_Systems
             if(calculatedage < 18)
             {
                 MessageBox.Show("You must be 18 or over to vote");
+            }
+            using (var db = new MainDatabaseContext())
+            {
+                int chosenId = int.Parse(txtvoterid.Text);
+
+                bool idExists = db.Voters.Any(v => v.VoterID == chosenId);
+
+                if (idExists)
+                {
+                    MessageBox.Show("This Voter ID is already registered. Please enter a unique ID.");
+                    return false;
+                }
             }
 
 

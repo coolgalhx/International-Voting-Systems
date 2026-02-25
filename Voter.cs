@@ -10,7 +10,7 @@ namespace International_Voting_Systems
     //THE MODEL
     public class Voter
     {
-        public int VoterID { get; private set; }
+        public int VoterID { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
         //public int Age { get; set; }
